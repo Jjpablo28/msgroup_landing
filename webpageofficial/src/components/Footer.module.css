@@ -1,0 +1,113 @@
+.footer {
+  background: #050505;
+  border-top: 1px solid #141414;
+  padding: 40px 24px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logoBadge {
+  width: 32px;
+  height: 32px;
+  background: #111;
+  border: 1.5px solid var(--green);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 11px;
+  color: var(--green);
+  font-family: monospace;
+}
+
+.logoName {
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.logoSub {
+  color: var(--green);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.link {
+  color: #555;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--green);
+}
+
+.cta {
+  background: var(--green);
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+  display: flex;          /* ← agregar */
+  align-items: center;    /* ← agregar */
+  gap: 8px;               /* ← agregar */
+}
+
+.cta:hover {
+  opacity: 0.85;
+}
+
+.bottom {
+  border-top: 1px solid #111;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #333;
+  font-size: 11px;
+}
+
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .links {
+    gap: 16px;
+  }
+}

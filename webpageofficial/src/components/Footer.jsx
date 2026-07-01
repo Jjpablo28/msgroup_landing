@@ -37,6 +37,7 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span>Copyright © 2026 msgroup. Todos los derechos reservados.</span>
+          <span>Desarrollado por: <a href="https://digital-veltrix.netlify.app/" target="_blank" rel="noopener noreferrer">Digital Veltrix</a></span>
           <span>ARRAY · LEDS&BEAMS · PANTALLA</span>
         </div>
       </div>

@@ -56,7 +56,7 @@ export const SERVICES = [
     {
         id: 'ingenieria',
         path: '/ingenieria',
-        icon: "faGear",
+        icon: "📐",
         title: 'Ingeniería Técnica',
         short: 'Diseño de montajes, soporte técnico y producción integral de infraestructura.',
         heroImg: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80',

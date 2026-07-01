@@ -13,8 +13,8 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "checkJs": false,
+    "strict": false,
     "noImplicitAny": false
-
   },
   "include": ["src"]
 }

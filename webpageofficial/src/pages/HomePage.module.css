@@ -1,0 +1,209 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero buttons */
+.heroBtns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.btnPrimary {
+  background: var(--green);
+  color: #000;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btnPrimary:hover { opacity: 0.85; }
+
+.btnOutline {
+  border: 1px solid rgba(168, 213, 32, 0.4);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.btnOutline:hover { border-color: var(--green); }
+
+/* Stats */
+.stats {
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat { text-align: center; }
+.statNum { display: block; color: var(--green); font-size: 2rem; font-weight: 900; }
+.statLabel { color: #666; font-size: 12px; letter-spacing: 1px; }
+
+/* Section header */
+.sectionHead {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  color: #fff;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.sectionSub {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Services section */
+.services {
+  background: #080808;
+  padding: 96px 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* Events section */
+.events {
+  background: #000;
+  padding: 96px 0;
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.evtCard {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.evtCard:hover {
+  border-color: rgba(168, 213, 32, 0.4);
+  transform: translateY(-3px);
+}
+
+.evtImg {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+
+.evtImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.evtIcon {
+  font-size: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.evtBody {
+  padding: 20px;
+}
+
+.evtTitle {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.evtTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  background: #1e1e1e;
+  color: var(--green);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(168, 213, 32, 0.2);
+}
+
+.tagMore {
+  color: #444;
+  font-size: 11px;
+  padding: 3px 8px;
+}
+
+.evtCta {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* CTA Banner */
+.ctaBanner {
+  background: #050505;
+  border-top: 1px solid #141414;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.ctaTitle {
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.ctaSub {
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}

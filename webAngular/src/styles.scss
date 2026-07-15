@@ -1,0 +1,41 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+router-outlet + * {
+  display: block; /* Asegura que el componente se comporte como un bloque */
+  animation: sutilEntrada 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Definimos la animación: Desvanecimiento + ligero deslizamiento hacia arriba */
+@keyframes sutilEntrada {
+  from {
+    opacity: 0;
+    transform: translateY(12px); /* Un salto muy sutil y elegante */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:root {
+  --green: #A8D520;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: rgba(168,213,32,0.3); border-radius: 3px; }

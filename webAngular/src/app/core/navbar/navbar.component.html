@@ -1,0 +1,49 @@
+<nav [class.scrolled]="scrolled">
+  <div class="inner">
+
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <div class="logo-badge">
+        <img src="assets/img/logos/logo ms.png" alt="ms Group" class="badge-img">
+      </div>
+      <div>
+        <div class="logo-name">MS EVENTOS</div>
+        <div class="logo-sub">soluciones profesionales</div>
+      </div>
+    </a>
+
+    <div class="links">
+      <a
+        *ngFor="let link of navLinks"
+        [routerLink]="link.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        class="link"
+      >
+        {{ link.label }}
+      </a>
+      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="cta">
+        Cotizar
+      </a>
+    </div>
+
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Menú">
+      {{ menuOpen ? '✕' : '☰' }}
+    </button>
+  </div>
+
+  <div class="mobile-menu" *ngIf="menuOpen">
+    <a
+      *ngFor="let link of navLinks"
+      [routerLink]="link.path"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+      class="mobile-link"
+      (click)="closeMenu()"
+    >
+      {{ link.label }}
+    </a>
+    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="mobile-cta" (click)="closeMenu()">
+      💬 Cotizar ahora
+    </a>
+  </div>
+</nav>

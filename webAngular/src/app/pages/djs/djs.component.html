@@ -1,0 +1,58 @@
+<section class="hero" [style.--hero-img]="'url(' + heroImg + ')'">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">MS Eventos — Servicios</div>
+    <h1>DJs<br><span class="accent">Profesionales</span></h1>
+    <p>{{ directorName }} y equipo — formato abierto, retro, disco, silent party y VeeJay.</p>
+    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+      Cotizar DJ →
+    </a>
+  </div>
+</section>
+
+<section class="detail">
+  <div class="container">
+
+    <!-- Director card -->
+    <div class="director-card">
+      <div class="director-icon">
+        <i class="fa-solid fa-headphones" style="color: rgb(255, 255, 255);"></i>
+      </div>
+      <div>
+        <h3>{{ directorName }} — Director</h3>
+        <p>Dee Jay desde {{ directorSince }}. Canal Capital, Pioneer Colombia. Pionero en Silent Party,
+          Roller Disco, Visual E-Motion y Retro Dance en Colombia. Gerente de ASODJColombia desde 2025.</p>
+      </div>
+    </div>
+
+    <div class="header">
+      <div class="eyebrow">¿Qué incluye?</div>
+      <h2><span class="icon">
+        <i class="fa-solid fa-headphones" style="color: rgb(255, 255, 255);"></i>
+      </span> DJs Profesionales</h2>
+    </div>
+
+    <div class="grid">
+      <div class="item" *ngFor="let item of items">
+        <span class="bullet">▸</span>
+        <span>{{ item }}</span>
+      </div>
+    </div>
+
+    <!-- Formats -->
+    <div class="formats-section">
+      <div class="eyebrow" style="margin-bottom:16px">Formatos disponibles</div>
+      <div class="formats">
+        <span class="format-tag" *ngFor="let f of formats">{{ f }}</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+        💬 Cotizar por WhatsApp
+      </a>
+      <a routerLink="/" class="btn-back">← Volver al inicio</a>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,74 @@
+<footer>
+  <div class="footer-container">
+
+    <div class="footer-grid">
+
+      <div class="footer-col brand-col">
+        <a routerLink="/" class="logo">
+          <div class="logo-badge">
+            <img src="assets/img/logos/logo ms.png" alt="ms Group" class="badge-img">
+          </div>
+          <div class="logo-text">
+            <div class="logo-name">MS EVENTOS</div>
+            <div class="logo-sub">soluciones profesionales</div>
+          </div>
+        </a>
+        <p class="brand-desc">
+          Llevamos tu evento al siguiente nivel con tecnología de vanguardia en sonido, pantallas LED, iluminación profesional y producción técnica integral.
+        </p>
+      </div>
+
+      <div class="footer-col links-col">
+        <h4 class="col-title">Navegación</h4>
+        <ul class="footer-links">
+          <li *ngFor="let link of footerLinks">
+            <a [routerLink]="link.path" class="footer-link">
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4 class="col-title">Contacto</h4>
+        <ul class="contact-info">
+          <li>
+            <span class="icon">
+           <i class="fa-solid fa-location-dot" style="color: rgb(255, 255, 255);"></i>
+            </span>
+            <span>Bogotá, Colombia</span>
+          </li>
+          <li>
+            <span class="icon">
+              <i class="fa-solid fa-phone" style="color: rgb(255, 255, 255);"></i>
+            </span>
+            <a href="tel:+573112240535" class="contact-link">+57 311 224 0535</a>
+          </li>
+          <li>
+            <span class="icon">
+              <i class="fa-solid fa-envelope" style="color: rgb(255, 255, 255);"></i>
+            </span>
+            <a href="mailto:comercial@msgroup.com.co" class="contact-link">comercial@msgroup.com.co</a>
+          </li>
+        </ul>
+        <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="cta-button">
+          <img src="assets/img/logos/whatsapp.svg" alt="WhatsApp" class="icon-img" />
+          Cotizar por WhatsApp
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="bottom-inner">
+        <span class="copyright">
+          Copyright © {{ year }} MS EVENTOS. Todos los derechos reservados.
+        </span>
+        <span class="tags">
+          ARRAY · LEDS &amp; BEAMS · PANTALLAS
+        </span>
+      </div>
+    </div>
+
+  </div>
+</footer>

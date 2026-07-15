@@ -1,0 +1,34 @@
+<section class="hero" [style.--hero-img]="'url(' + heroImg + ')'">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">MS Eventos — Servicios</div>
+    <h1>Sonido, Pantallas<br><span class="accent">e Iluminación</span></h1>
+    <p>Arrays profesionales, pantallas LED y diseño lumínico para todo tipo de evento.</p>
+    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+      Cotizar este servicio →
+    </a>
+  </div>
+</section>
+
+<section class="detail">
+  <div class="container">
+    <div class="header">
+      <div class="eyebrow">¿Qué incluye?</div>
+      <h2><span class="icon">
+        <i class="fa-solid fa-volume-high" style="color: rgb(255, 255, 255);"></i>
+      </span> Sonido, Pantallas e Iluminación</h2>
+    </div>
+    <div class="grid">
+      <div class="item" *ngFor="let item of items">
+        <span class="bullet">▸</span>
+        <span>{{ item }}</span>
+      </div>
+    </div>
+    <div class="actions">
+      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+        💬 Cotizar por WhatsApp
+      </a>
+      <a routerLink="/" class="btn-back">← Volver al inicio</a>
+    </div>
+  </div>
+</section>

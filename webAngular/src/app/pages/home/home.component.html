@@ -1,0 +1,88 @@
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Más de 20 años de experiencia</div>
+    <h1>Tu evento, nuestra<br><span class="accent">producción profesional</span></h1>
+    <p class="subtitle">
+      Sonido, pantallas LED, iluminación, DJs y artistas para eventos
+      privados, institucionales y masivos en Colombia.
+    </p>
+    <div class="hero-btns">
+      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+        Cotiza tu evento
+      </a>
+      <a routerLink="/sonido" class="btn-outline">Ver servicios</a>
+    </div>
+    <div class="stats">
+      <div class="stat" *ngFor="let s of stats">
+        <span class="stat-num">{{ s.number }}</span>
+        <span class="stat-label">{{ s.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Nuestros servicios</div>
+      <h2>Producción técnica integral</h2>
+      <p>Cada elemento pensado para que tu evento supere expectativas.</p>
+    </div>
+    <div class="services-grid">
+      <a
+        *ngFor="let svc of services"
+        [routerLink]="svc.path"
+        class="svc-card"
+      >
+        <div class="svc-icon">
+          <i [className]="svc.icon"></i>
+        </div>
+        <h3>{{ svc.title }}</h3>
+        <p>{{ svc.description }}</p>
+        <span class="svc-link">Ver más →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="events">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Tipos de evento</div>
+      <h2>Cuéntanos cuál es tu evento</h2>
+      <p>Más de 20 años en toda clase de producciones.</p>
+    </div>
+    <div class="events-grid">
+      <div class="evt-card" *ngFor="let evt of eventTypes">
+        <div class="evt-img" [style.background-image]="'url(' + evt.img + ')'">
+          <div class="evt-overlay"></div>
+          <span class="evt-icon">
+            <i [className]="evt.icon"></i>
+          </span>
+        </div>
+        <div class="evt-body">
+          <h3>Eventos {{ evt.label }}</h3>
+          <div class="tags">
+            <span class="tag" *ngFor="let item of evt.items.slice(0, 3)">{{ item }}</span>
+            <span class="tag-more" *ngIf="evt.items.length > 3">+{{ evt.items.length - 3 }} más</span>
+          </div>
+          <a [href]="getWaLink('Hola! Quiero cotizar un evento ' + evt.label)" target="_blank" rel="noreferrer" class="svc-link">
+            Cotizar →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>cotiza con nosotros...</h2>
+    <p>INFO: 311 224 0535</p>
+    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+      <i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp
+    </a>
+  </div>
+</section>

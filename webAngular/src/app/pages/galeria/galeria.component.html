@@ -1,0 +1,40 @@
+<section class="hero" [style.--hero-img]="'url(' + heroImg + ')'">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow">MS Eventos</div>
+    <h1>Nuestros mejores<br><span class="accent">momentos</span></h1>
+    <p>Cada foto es un evento real. Mira de qué somos capaces.</p>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Galería</div>
+      <h2>Producción en imágenes</h2>
+    </div>
+    <div class="grid">
+      <div
+        class="item"
+        *ngFor="let img of images; let i = index"
+        (click)="openLightbox(i)"
+      >
+        <img [src]="img.url" [alt]="img.alt" loading="lazy" />
+        <div class="item-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" *ngIf="selectedIndex !== null" (click)="closeLightbox()">
+  <div class="lightbox-inner" (click)="$event.stopPropagation()">
+    <button class="close" (click)="closeLightbox()">✕</button>
+    <img [src]="images[selectedIndex!].url" [alt]="images[selectedIndex!].alt" />
+    <div class="lightbox-nav">
+      <button (click)="prev()">← Anterior</button>
+      <span>{{ selectedIndex! + 1 }} / {{ images.length }}</span>
+      <button (click)="next()">Siguiente →</button>
+    </div>
+  </div>
+</div>

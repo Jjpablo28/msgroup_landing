@@ -1,0 +1,172 @@
+$green: #A8D520; //
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10,10,10,0.75); //
+  backdrop-filter: blur(12px); //
+  border-bottom: 1px solid transparent; //
+  transition: background 0.3s, border-color 0.3s; //
+
+  &.scrolled {
+    background: rgba(10,10,10,0.97); //
+    border-color: rgba(168,213,32,0.15); //
+  }
+}
+
+.inner {
+  max-width: 1200px; //
+  margin: 0 auto; //
+  padding: 0 24px; //
+
+  /* Incrementamos la altura de la barra de 68px a 82px */
+  height: 82px;
+
+  display: flex; //
+  align-items: center; //
+  justify-content: space-between; //
+}
+
+.logo {
+  display: flex; //
+  align-items: center; //
+  gap: 12px; /* Mayor separación entre la insignia y el texto del logo (antes 10px) */
+  text-decoration: none; //
+}
+
+.logo-badge {
+  /* Incrementamos el tamaño del logo de 38px a 44px */
+  width: 44px;
+  height: 44px;
+
+  //background: #111; //
+  //border: 1.5px solid $green; //
+  /*border-radius: 7px; */
+  display: flex; //
+  align-items: center; //
+  justify-content: center; //
+  font-weight: 900; //
+
+  /* Escalamos la tipografía interna de la insignia a 15px */
+  font-size: 15px;
+
+  color: $green; //
+  font-family: monospace; //
+  letter-spacing: -1px; //
+}
+
+.logo-name {
+  color: #fff; //
+  font-weight: 800; //
+
+  /* Escalamos el nombre del logo de 13px a 15px */
+  font-size: 15px;
+
+  letter-spacing: 2px; //
+  line-height: 1.2; //
+}
+
+.logo-sub {
+  color: $green; //
+
+  /* Escalamos la descripción de 9px a 10px */
+  font-size: 10px;
+
+  letter-spacing: 1px; //
+}
+
+.links {
+  display: flex; //
+  align-items: center; //
+
+  /* Aumentamos la separación entre los enlaces del menú de 28px a 32px */
+  gap: 32px;
+}
+
+.link {
+  color: #aaa; //
+
+  /* Escalamos los textos de los enlaces de 12px a 13px */
+  font-size: 13px;
+
+  letter-spacing: 1.5px; //
+  text-transform: uppercase; //
+  font-weight: 500; //
+  text-decoration: none; //
+  transition: color 0.2s; //
+
+  &:hover, &.active { color: $green; } //
+}
+
+.cta {
+  background: $green; //
+  color: #000; //
+
+  /* Ampliamos el botón de llamado a la acción para darle más peso visual */
+  padding: 10px 24px;
+
+  border-radius: 4px; //
+  font-size: 12px; //
+  font-weight: 800; //
+  letter-spacing: 1px; //
+  text-transform: uppercase; //
+  text-decoration: none; //
+  display: flex; //
+  align-items: center; //
+  gap: 8px; //
+  transition: opacity 0.2s; //
+
+  &:hover { opacity: 0.85; } //
+}
+
+.hamburger {
+  display: none; //
+  background: none; //
+  border: none; //
+  color: $green; //
+  font-size: 22px; //
+  cursor: pointer; //
+  padding: 4px; //
+}
+
+.mobile-menu {
+  background: #0a0a0a; //
+  border-top: 1px solid #1a1a1a; //
+  padding: 16px 24px 20px; //
+  display: flex; //
+  flex-direction: column; //
+  gap: 4px; //
+}
+
+.mobile-link {
+  display: block; //
+  color: #aaa; //
+  padding: 11px 0; //
+  border-bottom: 1px solid #141414; //
+  font-size: 13px; //
+  letter-spacing: 1px; //
+  text-transform: uppercase; //
+  text-decoration: none; //
+  transition: color 0.2s; //
+
+  &:hover, &.active { color: $green; } //
+}
+
+.mobile-cta {
+  display: block; //
+  margin-top: 14px; //
+  background: $green; //
+  color: #000; //
+  text-align: center; //
+  padding: 12px; //
+  border-radius: 4px; //
+  font-weight: 800; //
+  font-size: 14px; //
+  text-decoration: none; //
+}
+
+@media (max-width: 768px) {
+  .links { display: none; } //
+  .hamburger { display: block; } //
+}

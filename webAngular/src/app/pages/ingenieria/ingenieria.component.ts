@@ -10,7 +10,7 @@ import { MetaService } from '../../core/meta.service';
 export class IngenieriaComponent implements OnInit {
   readonly heroImg = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80';
   readonly whatsappUrl =
-    'https://wa.me/573112240535?text=Hola!%20Me%20interesa%20cotizar%20Ingenieria%20Tecnica%20para%20mi%20evento.';
+    'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20Ingenieria%20Tecnica%20para%20mi%20evento.';
 
   readonly items: string[] = [
     'Diseño y producción de montajes escénicos',

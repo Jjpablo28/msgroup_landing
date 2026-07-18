@@ -11,7 +11,7 @@ export class SonidoComponent implements OnInit {
   readonly heroImg = 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&q=80';
 
   readonly whatsappUrl =
-    'https://wa.me/573112240535?text=Hola!%20Me%20interesa%20cotizar%20Sonido%2C%20Pantallas%20e%20Iluminaci%C3%B3n.';
+    'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20Sonido%2C%20Pantallas%20e%20Iluminaci%C3%B3n.';
 
   readonly items: string[] = [
     'Arrays line-array para grandes recintos',

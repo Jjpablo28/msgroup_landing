@@ -23,7 +23,7 @@ interface EventType {
 })
 export class HomeComponent implements OnInit {
   readonly whatsappUrl =
-    'https://wa.me/573112240535?text=Hola!%20Me%20interesa%20cotizar%20un%20evento%20con%20MS%20Eventos.';
+    'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20un%20evento%20con%20MS%20Eventos.';
 
   readonly stats = [
     { number: '+ 20', label: 'Años de experiencia' },
@@ -91,6 +91,6 @@ export class HomeComponent implements OnInit {
   }
 
   getWaLink(msg: string): string {
-    return `https://wa.me/573112240535?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/573132892628?text=${encodeURIComponent(msg)}`;
   }
 }

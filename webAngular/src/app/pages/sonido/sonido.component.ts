@@ -28,7 +28,7 @@ export class SonidoComponent implements OnInit {
 
   ngOnInit(): void {
     this.metaService.setMeta({
-      title: 'Sonido, Pantallas e Iluminación — MS Eventos',
+      title: 'Sonido, Pantallas e Iluminación — MS Group',
       description: 'Arrays profesionales, pantallas LED indoor/outdoor y diseño lumínico para eventos en Colombia. Más de 20 años de experiencia.',
       keywords: 'sonido profesional, pantallas LED, iluminación eventos, line array, moving heads, Colombia',
     });

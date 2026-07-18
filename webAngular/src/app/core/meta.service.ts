@@ -28,7 +28,7 @@ export class MetaService {
     this.meta.updateTag({ property: 'og:title',       content: data.title });
     this.meta.updateTag({ property: 'og:description',  content: data.description });
     this.meta.updateTag({ property: 'og:type',         content: 'website' });
-    this.meta.updateTag({ property: 'og:site_name',    content: 'MS Eventos' });
+    this.meta.updateTag({ property: 'og:site_name',    content: 'MS Group' });
 
 
     const currentUrl = 'https://msgroup.com.co' + this.router.url;

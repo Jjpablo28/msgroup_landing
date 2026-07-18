@@ -32,8 +32,8 @@ export class GaleriaComponent implements OnInit {
 
   ngOnInit(): void {
     this.metaService.setMeta({
-      title: 'Galería — MS Eventos',
-      description: 'Galería de eventos producidos por MS Eventos en Colombia. Conciertos, matrimonios, eventos corporativos y más.',
+      title: 'Galería — MS Group',
+      description: 'Galería de eventos producidos por MS Group en Colombia. Conciertos, matrimonios, eventos corporativos y más.',
       keywords: 'galería eventos colombia, fotos eventos, producción eventos fotos',
     });
   }

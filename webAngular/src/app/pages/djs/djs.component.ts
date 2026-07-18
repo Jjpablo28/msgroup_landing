@@ -41,7 +41,7 @@ export class DjsComponent implements OnInit {
 
   ngOnInit(): void {
     this.metaService.setMeta({
-      title: 'DJs Profesionales — MS Eventos',
+      title: 'DJs Profesionales — MS Group',
       description: 'Jimmy DJ y equipo. Dee Jay desde 1995, Canal Capital, Pioneer Colombia. Pionero en Silent Party, Roller Disco y Retro Dance en Colombia.',
       keywords: 'DJ profesional colombia, Jimmy DJ, silent party bogotá, retro dance, DJ eventos',
     });

@@ -27,7 +27,7 @@ export class ArtistasComponent implements OnInit {
 
   ngOnInit(): void {
     this.metaService.setMeta({
-      title: 'Artistas — MS Eventos',
+      title: 'Artistas — MS Group',
       description: 'Artistas nacionales e internacionales para tu evento en Colombia. Bandas, shows en vivo, coordinación técnica completa.',
       keywords: 'artistas eventos colombia, bandas en vivo, shows eventos, producción artística',
     });

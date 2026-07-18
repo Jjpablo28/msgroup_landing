@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.metaService.setMeta({
-      title: 'MS Eventos — Producción Profesional de Eventos en Colombia',
+      title: 'MS Group — Producción Profesional de Eventos en Colombia',
       description: 'Más de 20 años produciendo eventos privados, institucionales y masivos. Sonido, pantallas LED, iluminación, DJs y artistas.',
       keywords: 'eventos colombia, sonido profesional, pantallas LED, iluminación, DJs, producción eventos bogotá',
     });

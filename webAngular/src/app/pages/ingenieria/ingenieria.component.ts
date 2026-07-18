@@ -27,7 +27,7 @@ export class IngenieriaComponent implements OnInit {
 
   ngOnInit(): void {
     this.metaService.setMeta({
-      title: 'Ingeniería Técnica — MS Eventos',
+      title: 'Ingeniería Técnica — MS Group',
       description: 'Diseño de montajes, soporte técnico e infraestructura para eventos en Colombia. Producción integral con más de 20 años de experiencia.',
       keywords: 'ingeniería eventos, montajes escénicos, soporte técnico, producción eventos colombia',
     });

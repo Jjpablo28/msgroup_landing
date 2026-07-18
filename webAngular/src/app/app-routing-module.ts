@@ -25,7 +25,7 @@ const routes: Routes = [
     component: SonidoComponent,
     data: {
       seo: {
-        title: 'MS Eventos — Sonido, Pantallas e Iluminación Profesional',
+        title: 'MS Group — Sonido, Pantallas e Iluminación Profesional',
         description: 'Alquiler de sistemas de sonido profesional, pantallas LED de alta definición y shows de iluminación inteligente para eventos.',
         keywords: 'sonido profesional, pantallas led, iluminacion profesional, alquiler de sonido'
       }
@@ -36,7 +36,7 @@ const routes: Routes = [
     component: ArtistasComponent,
     data: {
       seo: {
-        title: 'MS Eventos — Artistas y Agrupaciones en Vivo',
+        title: 'MS Group — Artistas y Agrupaciones en Vivo',
         description: 'Encuentra las mejores bandas, orquestas y agrupaciones musicales en vivo para hacer de tu evento un momento inolvidable.',
         keywords: 'booking de artistas, musica en vivo, agrupaciones musicales, eventos'
       }
@@ -47,7 +47,7 @@ const routes: Routes = [
     component: IngenieriaComponent,
     data: {
       seo: {
-        title: 'MS Eventos — Ingeniería Técnica y Logística',
+        title: 'MS Group — Ingeniería Técnica y Logística',
         description: 'Producción técnica de eventos, soporte especializado, ingenieros de sonido y rigging profesional.',
         keywords: 'ingenieria tecnica, produccion audiovisual, montaje de estructuras'
       }
@@ -58,7 +58,7 @@ const routes: Routes = [
     component: DjsComponent,
     data: {
       seo: {
-        title: 'MS Eventos — DJs Profesionales para Eventos',
+        title: 'MS Group — DJs Profesionales para Eventos',
         description: 'Contrata DJs profesionales de amplio recorrido para eventos corporativos, fiestas privadas y conciertos.',
         keywords: 'booking djs, djs profesionales, djs bogota, fiestas'
       }
@@ -69,7 +69,7 @@ const routes: Routes = [
     component: GaleriaComponent,
     data: {
       seo: {
-        title: 'MS Eventos — Galería de Proyectos y Montajes',
+        title: 'MS Group — Galería de Proyectos y Montajes',
         description: 'Echa un vistazo a nuestros montajes reales de sonido, iluminación, pantallas y logística en diversos eventos de alto nivel.',
         keywords: 'galeria eventos, fotos eventos, produccion real, msgroup'
       }

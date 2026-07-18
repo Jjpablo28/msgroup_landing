@@ -10,7 +10,7 @@ import { MetaService } from '../../core/meta.service';
 export class ArtistasComponent implements OnInit {
   readonly heroImg = 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1200&q=80';
   readonly whatsappUrl =
-    'https://wa.me/573112240535?text=Hola!%20Me%20interesa%20cotizar%20Artistas%20para%20mi%20evento.';
+    'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20Artistas%20para%20mi%20evento.';
 
   readonly items: string[] = [
     'Artistas nacionales e internacionales',

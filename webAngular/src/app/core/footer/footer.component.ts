@@ -15,7 +15,7 @@ export class FooterComponent {
   readonly year = new Date().getFullYear();
 
   readonly whatsappUrl =
-    'https://wa.me/573112240535?text=Hola!%20Me%20interesa%20cotizar%20un%20evento%20con%20MS%20Eventos.';
+    'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20un%20evento%20con%20MS%20Eventos.';
 
   readonly footerLinks: FooterLink[] = [
     { label: 'Inicio',      path: '/' },

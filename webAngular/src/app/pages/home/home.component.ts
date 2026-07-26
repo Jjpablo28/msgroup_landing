@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MetaService } from '../../core/meta.service';
+import {Component, OnInit} from '@angular/core';
+import {MetaService} from '../../core/meta.service';
 
 interface ServiceCard {
   icon: string; // Guardará las clases de Font Awesome (ej: 'fa-solid fa-volume-high')
@@ -15,6 +15,19 @@ interface EventType {
   items: string[];
 }
 
+interface Socio {
+  nombre: string;
+  cargo: string;
+  icon: string;
+}
+
+interface RedSocial {
+  nombre: string;
+  icon: string;
+  url: string;
+  color: string;
+}
+
 @Component({
   selector: 'app-home',
   standalone: false,
@@ -26,8 +39,8 @@ export class HomeComponent implements OnInit {
     'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20un%20evento%20con%20MS%20Group.';
 
   readonly stats = [
-    { number: '+ 20', label: 'Años de experiencia' },
-    { number: '+ 1.000', label: 'Eventos realizados' },
+    {number: '+ 20', label: 'Años de experiencia'},
+    {number: '+ 1.000', label: 'Eventos realizados'},
   ];
 
   // SECCIÓN SERVICIOS: Emojis cambiados por iconos vectoriales de Font Awesome
@@ -80,7 +93,59 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor(private metaService: MetaService) {}
+
+  readonly socios: Socio[] = [
+    {
+      nombre: 'MS Eventos',
+      cargo: 'Director & DJ Residente',
+      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785043160/logo_ms_lueree.png',
+    },
+    {
+      nombre: 'Pablo Zoza',
+      cargo: 'Cantante',
+      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/p_z_f_chnw6g.png',
+    },
+    {
+      nombre: 'Martin Fierro',
+      cargo: 'Producción Visual & LED',
+      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/mf_fi_omwx37.png',
+    },
+    {
+      nombre: 'Diego Cuervo',
+      cargo: 'Ingenieria Visual',
+      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/D_C_2_yquutt.png',
+    },
+  ];
+
+  readonly redes: RedSocial[] = [
+    {
+      nombre: 'Instagram',
+      icon: 'fa-brands fa-instagram',
+      url: 'https://instagram.com/mobilesoundeventos',
+      color: '#E1306C',
+    },
+    {
+      nombre: 'Facebook',
+      icon: 'fa-brands fa-facebook',
+      url: 'https://facebook.com/mobilesoundeventos',
+      color: '#1877F2',
+    },
+    {
+      nombre: 'WhatsApp',
+      icon: 'fa-brands fa-whatsapp',
+      url: 'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20un%20evento%20con%20MS%20Group.',
+      color: '#25D366',
+    },
+    {
+      nombre: 'Email',
+      icon: 'fa-solid fa-envelope',
+      url: 'mailto:comercial@msgroup.com.co',
+      color: '#A8D520',
+    },
+  ];
+
+  constructor(private metaService: MetaService) {
+  }
 
   ngOnInit(): void {
     this.metaService.setMeta({

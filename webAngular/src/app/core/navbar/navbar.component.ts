@@ -3,6 +3,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 interface NavLink {
   label: string;
   path: string;
+  fragment?: string;
 }
 
 @Component({
@@ -20,11 +21,12 @@ export class NavbarComponent implements OnInit {
 
   readonly navLinks: NavLink[] = [
     { label: 'Inicio',      path: '/' },
-    { label: 'Sonido',      path: '/sonido' },
+    { label: 'Sonido-Pantallas-Iluminación',      path: '/sonido' },
     { label: 'Artistas',    path: '/artistas' },
     { label: 'Ingeniería',  path: '/ingenieria' },
     { label: 'DJs',         path: '/djs' },
     { label: 'Galería',     path: '/galeria' },
+    { label: 'Quienes Somos?', path: '/', fragment: 'quienes-somos' },
   ];
 
   ngOnInit(): void {}
@@ -40,5 +42,14 @@ export class NavbarComponent implements OnInit {
 
   closeMenu(): void {
     this.menuOpen = false;
+  }
+  scrollTo(path: string, fragment?: string) {
+    if (fragment) {
+      const element = document.getElementById(fragment);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
   }
 }

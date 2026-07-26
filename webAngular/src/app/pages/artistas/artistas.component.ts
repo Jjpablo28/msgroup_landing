@@ -32,4 +32,11 @@ export class ArtistasComponent implements OnInit {
       keywords: 'artistas eventos colombia, bandas en vivo, shows eventos, producción artística',
     });
   }
+  get heroStyle(): object {
+    return {
+      'background-image': `url(${this.heroImg})`,
+      'background-size': 'cover',
+      'background-position': 'center'
+    };
+  }
 }

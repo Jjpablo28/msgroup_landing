@@ -13,6 +13,7 @@ import { ArtistasComponent } from './pages/artistas/artistas.component';
 import { IngenieriaComponent } from './pages/ingenieria/ingenieria.component';
 import { DjsComponent } from './pages/djs/djs.component';
 import { GaleriaComponent } from './pages/galeria/galeria.component';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,11 @@ import { GaleriaComponent } from './pages/galeria/galeria.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, // Cargamos tu módulo de rutas de forma clásica
+    AppRoutingModule,
+    CommonModule,
+    NgOptimizedImage
   ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

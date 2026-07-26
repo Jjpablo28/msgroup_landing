@@ -46,4 +46,11 @@ export class DjsComponent implements OnInit {
       keywords: 'DJ profesional colombia, Jimmy DJ, silent party bogotá, retro dance, DJ eventos',
     });
   }
+  get heroStyle(): object {
+    return {
+      'background-image': `url(${this.heroImg})`,
+      'background-size': 'cover',
+      'background-position': 'center'
+    };
+  }
 }

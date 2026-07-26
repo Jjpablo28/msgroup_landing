@@ -1,36 +1,58 @@
-<section class="hero" [style.--hero-img]="'url(' + heroImg + ')'">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="eyebrow">MS Group</div>
-    <h1>Nuestros mejores<br><span class="accent">momentos</span></h1>
-    <p>Cada foto es un evento real. Mira de qué somos capaces.</p>
-  </div>
-</section>
-
 <section class="gallery-section">
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">Galería</div>
-      <h2>Producción en imágenes</h2>
+      <h2>Producciónes realizadas por Nosotros</h2>
     </div>
+
+    <!-- REJILLA -->
     <div class="grid">
       <div
         class="item"
-        *ngFor="let img of images; let i = index"
+        *ngFor="let item of images; let i = index"
         (click)="openLightbox(i)"
       >
-        <img [src]="img.url" [alt]="img.alt" loading="lazy" />
+        <!-- Si es Video -->
+        <ng-container *ngIf="item.type === 'video'; else imgTpl">
+          <video [src]="item.url" muted preload="metadata"></video>
+          <div class="video-badge">▶ Video</div>
+        </ng-container>
+
+        <!-- Si es Imagen -->
+        <ng-template #imgTpl>
+          <img [src]="item.url" [alt]="item.alt" loading="lazy" />
+        </ng-template>
+
         <div class="item-overlay"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Lightbox -->
+<!-- LIGHTBOX OPTIMIZADO Y FULLSCREEN -->
 <div class="lightbox" *ngIf="selectedIndex !== null" (click)="closeLightbox()">
   <div class="lightbox-inner" (click)="$event.stopPropagation()">
     <button class="close" (click)="closeLightbox()">✕</button>
-    <img [src]="images[selectedIndex!].url" [alt]="images[selectedIndex!].alt" />
+
+    <!-- Reproductor de Video -->
+    <video
+      *ngIf="images[selectedIndex!].type === 'video'"
+      [src]="images[selectedIndex!].url"
+      controls
+      autoplay
+      playsinline
+      class="lightbox-media"
+    ></video>
+
+    <!-- Visualizador de Imagen -->
+    <img
+      *ngIf="images[selectedIndex!].type !== 'video'"
+      [src]="images[selectedIndex!].url"
+      [alt]="images[selectedIndex!].alt"
+      class="lightbox-media"
+    />
+
+    <!-- Navegación -->
     <div class="lightbox-nav">
       <button (click)="prev()">← Anterior</button>
       <span>{{ selectedIndex! + 1 }} / {{ images.length }}</span>

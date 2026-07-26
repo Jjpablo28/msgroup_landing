@@ -32,4 +32,11 @@ export class IngenieriaComponent implements OnInit {
       keywords: 'ingeniería eventos, montajes escénicos, soporte técnico, producción eventos colombia',
     });
   }
+  get heroStyle(): object {
+    return {
+      'background-image': `url(${this.heroImg})`,
+      'background-size': 'cover',
+      'background-position': 'center'
+    };
+  }
 }

@@ -3,7 +3,12 @@
 
     <a routerLink="/" class="logo" (click)="closeMenu()">
       <div class="logo-badge">
-        <img src="assets/img/logos/logo ms.png" alt="ms Group" class="badge-img">
+        <img
+          src="https://res.cloudinary.com/dzueiucg9/image/upload/w_200,f_auto,q_auto/v1785043531/logo_nuevo_z25u13.png"
+          width="60"
+          height="60"
+          style="width: 80px; height: auto; object-fit: contain;"
+          alt="Logo MS Group" />
       </div>
       <div>
         <div class="logo-name">MS Group</div>
@@ -15,9 +20,9 @@
       <a
         *ngFor="let link of navLinks"
         [routerLink]="link.path"
+        [fragment]="link.fragment"
         routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
-        class="link"
+        [routerLinkActiveOptions]="{ paths: 'exact', matrixParams: 'ignored', queryParams: 'ignored', fragment: 'exact' }"        class="link"
       >
         {{ link.label }}
       </a>
@@ -35,8 +40,9 @@
     <a
       *ngFor="let link of navLinks"
       [routerLink]="link.path"
+      [fragment]="link.fragment"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+      [routerLinkActiveOptions]="{ paths: 'exact', matrixParams: 'ignored', queryParams: 'ignored', fragment: 'exact' }"      class="mobile-link"
       class="mobile-link"
       (click)="closeMenu()"
     >

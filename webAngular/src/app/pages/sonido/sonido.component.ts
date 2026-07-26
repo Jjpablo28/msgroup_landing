@@ -33,4 +33,11 @@ export class SonidoComponent implements OnInit {
       keywords: 'sonido profesional, pantallas LED, iluminación eventos, line array, moving heads, Colombia',
     });
   }
+  get heroStyle(): object {
+    return {
+      'background-image': `url(${this.heroImg})`,
+      'background-size': 'cover',
+      'background-position': 'center'
+    };
+  }
 }

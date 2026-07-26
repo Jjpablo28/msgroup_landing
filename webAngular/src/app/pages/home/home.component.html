@@ -37,7 +37,7 @@
         class="svc-card"
       >
         <div class="svc-icon">
-          <i [className]="svc.icon"></i>
+          <i [class]="svc.icon"></i>
         </div>
         <h3>{{ svc.title }}</h3>
         <p>{{ svc.description }}</p>
@@ -59,7 +59,7 @@
         <div class="evt-img" [style.background-image]="'url(' + evt.img + ')'">
           <div class="evt-overlay"></div>
           <span class="evt-icon">
-            <i [className]="evt.icon"></i>
+            <i [class]="evt.icon"></i>
           </span>
         </div>
         <div class="evt-body">
@@ -76,6 +76,51 @@
     </div>
   </div>
 </section>
+<!-- SOCIOS -->
+<section id="quienes-somos"  >
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Nuestro equipo</div>
+      <h2>Quiénes conformamos MS Group</h2>
+      <p>Profesionales con años de experiencia en producción de eventos.</p>
+    </div>
+    <div class="socios-grid">
+      <div class="socio-card" *ngFor="let socio of socios">
+        <div class="socio-icon">
+          <img
+            [src]="socio.icon"
+            width="70"
+            height="70"
+            loading="lazy"
+            alt="{{socio.nombre}}" />
+        </div>
+        <h3>{{ socio.nombre }}</h3>
+        <span class="socio-cargo">{{ socio.cargo }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REDES SOCIALES -->
+<section class="redes">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Encuéntranos en</div>
+      <h2>Nuestras redes sociales</h2>
+    </div>
+    <div class="redes-grid">
+      <a *ngFor="let red of redes"
+         [href]="red.url"
+         target="_blank"
+         rel="noreferrer"
+         class="red-card">
+        <i [class]="red.icon"></i>
+        <span>{{ red.nombre }}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <section class="cta-banner">
   <div class="container">

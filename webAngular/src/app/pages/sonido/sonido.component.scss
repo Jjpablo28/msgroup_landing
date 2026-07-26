@@ -23,7 +23,9 @@ $green: #A8D520;
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 60% 40%, rgba(168,213,32,0.06) 0%, transparent 60%);
+  opacity: 0.18;
+  z-index: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(168, 213, 32, 0.06) 0%, transparent 60%);
 }
 
 .hero-content {

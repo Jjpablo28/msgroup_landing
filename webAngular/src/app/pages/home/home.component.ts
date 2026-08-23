@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit {
   readonly socios: Socio[] = [
     {
       nombre: 'MS Eventos',
-      cargo: 'Director & DJ Residente',
+      cargo: 'Director',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785043160/logo_ms_lueree.png',
     },
     {
@@ -107,12 +107,12 @@ export class HomeComponent implements OnInit {
     },
     {
       nombre: 'Martin Fierro',
-      cargo: 'Producción Visual & LED',
+      cargo: 'Patrocinadores',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/mf_fi_omwx37.png',
     },
     {
       nombre: 'Diego Cuervo',
-      cargo: 'Ingenieria Visual',
+      cargo: 'Ingenieria Audio-Visual',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/D_C_2_yquutt.png',
     },
   ];

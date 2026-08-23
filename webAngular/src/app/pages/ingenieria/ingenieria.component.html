@@ -1,11 +1,29 @@
 <section class="hero">
   <div class="hero-bg" [ngStyle]="heroStyle"></div>
+
+  <div class="scene" [ngStyle]="sceneStyle" [class.active]="heroActive">
+    <div class="grid-floor"></div>
+    <div class="beam beam-1"></div>
+    <div class="beam beam-2"></div>
+    <div class="beam beam-3"></div>
+    <div class="eq-bars">
+      <span class="bar" *ngFor="let b of eqBars; let i = index" [style.animation-delay.ms]="i * 65"></span>
+    </div>
+  </div>
+
   <div class="hero-content">
     <div class="eyebrow">MS Group — Servicios</div>
     <h1>Ingeniería<br><span class="accent">Técnica</span></h1>
     <p>Diseño de montajes, soporte técnico y producción integral de infraestructura.</p>
-    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
-      Cotizar ingeniería →
+    <a
+      [href]="whatsappUrl"
+      target="_blank"
+      rel="noreferrer"
+      class="btn-primary"
+      [ngStyle]="btnStyle"
+      (mousemove)="onBtnMove($event)"
+      (mouseleave)="onBtnLeave()">
+      {{ selectedCount > 0 ? 'Cotizar seleccionados (' + selectedCount + ')' : 'Cotizar ingeniería' }} →
     </a>
   </div>
 </section>
@@ -17,18 +35,118 @@
       <h2><span class="icon">
         <i class="fa-solid fa-gears" style="color: rgb(255, 255, 255);"></i>
       </span> Ingeniería Técnica</h2>
+      <p class="header-hint">Toca cualquier ítem para agregarlo a tu cotización, o abre la ficha para ver el detalle.</p>
     </div>
-    <div class="grid">
-      <div class="item" *ngFor="let item of items">
-        <span class="bullet">▸</span>
-        <span>{{ item }}</span>
+
+    <!-- Tabs por categoría -->
+    <div class="tabs">
+      <button
+        *ngFor="let s of servicios"
+        class="tab-btn"
+        [class.active]="tabActiva === s.id"
+        (click)="cambiarTab(s.id)">
+        <i [class]="s.icon"></i>
+        <span>{{ s.titulo }}</span>
+      </button>
+    </div>
+
+    <!-- Panel activo -->
+    <div class="panel">
+      <div class="panel-top">
+        <span class="panel-count">{{ servicioActivoTab.items.length }} ítems en esta categoría</span>
+        <button type="button" class="select-all-btn" (click)="toggleAllInServicio(servicioActivoTab)">
+          {{ isServicioFullySelected(servicioActivoTab) ? 'Quitar todos' : 'Seleccionar todos' }}
+        </button>
       </div>
+
+      <div class="lista">
+        <div
+          class="fila"
+          *ngFor="let item of servicioActivoTab.items; let i = index"
+          [class.selected]="isSelected(servicioActivoTab.id, i)"
+          role="checkbox"
+          [attr.aria-checked]="isSelected(servicioActivoTab.id, i)"
+          tabindex="0"
+          (click)="toggleItem(servicioActivoTab.id, i)"
+          (keydown.enter)="toggleItem(servicioActivoTab.id, i)"
+          (keydown.space)="toggleItem(servicioActivoTab.id, i); $event.preventDefault()">
+          <span class="idx">{{ pad(i + 1) }}</span>
+          <span class="txt">{{ item }}</span>
+          <span class="toggle">
+            <i class="fa-solid" [class.fa-plus]="!isSelected(servicioActivoTab.id, i)" [class.fa-check]="isSelected(servicioActivoTab.id, i)"></i>
+          </span>
+        </div>
+      </div>
+
+      <button type="button" class="ver-ficha" (click)="abrirModal(servicioActivoTab)">
+        Ver ficha completa <i class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
+
+    <!-- Barra de selección -->
+    <div class="selection-bar" *ngIf="selectedCount > 0">
+      <span class="selection-count">
+        {{ selectedCount }} ítem{{ selectedCount > 1 ? 's' : '' }} seleccionado{{ selectedCount > 1 ? 's' : '' }} para cotizar
+      </span>
+      <button type="button" class="clear-btn" (click)="clearSelection()">Limpiar selección</button>
+    </div>
+
     <div class="actions">
-      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
-        💬 Cotizar por WhatsApp
-      </a>
-      <a routerLink="/" class="btn-back">← Volver al inicio</a>
-    </div>
+    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+      <i class="fa-brands fa-whatsapp"></i> {{ selectedCount > 0 ? 'Cotizar seleccionados (' + selectedCount + ')' : 'Cotizar por WhatsApp' }}
+    </a>
+    <a routerLink="/" class="btn-back">← Volver al inicio</a>
+  </div>
   </div>
 </section>
+
+<!-- MODAL DETALLE -->
+<div class="modal-overlay" *ngIf="servicioActivo" (click)="cerrarModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="cerrarModal()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-header">
+      <div class="modal-icon">
+        <i [class]="servicioActivo.icon"></i>
+      </div>
+      <div>
+        <div class="eyebrow">Ingeniería Técnica</div>
+        <h2>{{ servicioActivo.titulo }}</h2>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-select-row">
+        <div class="eyebrow" style="margin-bottom:0">¿Qué incluye?</div>
+        <button type="button" class="select-all-btn" (click)="toggleAllInServicio(servicioActivo)">
+          {{ isServicioFullySelected(servicioActivo) ? 'Quitar todos' : 'Seleccionar todos' }}
+        </button>
+      </div>
+      <div class="modal-items">
+        <div
+          class="modal-item"
+          *ngFor="let item of servicioActivo.items; let i = index"
+          [class.selected]="isSelected(servicioActivo.id, i)"
+          role="checkbox"
+          [attr.aria-checked]="isSelected(servicioActivo.id, i)"
+          tabindex="0"
+          (click)="toggleItem(servicioActivo.id, i)"
+          (keydown.enter)="toggleItem(servicioActivo.id, i)"
+          (keydown.space)="toggleItem(servicioActivo.id, i); $event.preventDefault()">
+          <i class="fa-solid" [class.fa-circle-check]="isSelected(servicioActivo.id, i)" [class.fa-circle]="!isSelected(servicioActivo.id, i)"></i>
+          <span>{{ item }}</span>
+        </div>
+      </div>
+      <a
+        [href]="whatsappUrl"
+        target="_blank"
+        rel="noreferrer"
+        class="btn-primary modal-cta"
+        (click)="cerrarModal()">
+        <i class="fa-brands fa-whatsapp"></i> {{ selectedCount > 0 ? 'Cotizar seleccionados (' + selectedCount + ')' : 'Cotizar ' + servicioActivo.titulo }}
+      </a>
+    </div>
+  </div>
+</div>

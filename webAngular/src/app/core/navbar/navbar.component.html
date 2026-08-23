@@ -22,34 +22,45 @@
         [routerLink]="link.path"
         [fragment]="link.fragment"
         routerLinkActive="active"
-        [routerLinkActiveOptions]="{ paths: 'exact', matrixParams: 'ignored', queryParams: 'ignored', fragment: 'exact' }"        class="link"
+        [routerLinkActiveOptions]="{ paths: 'exact', matrixParams: 'ignored', queryParams: 'ignored', fragment: 'exact' }"
+        class="link"
       >
         {{ link.label }}
       </a>
-      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="cta">
+      <a [href]="whatsappUrl" target="_blank" rel="noreferrer noopener" class="cta">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
         Cotizar
       </a>
     </div>
 
-    <button class="hamburger" (click)="toggleMenu()" aria-label="Menú">
-      {{ menuOpen ? '✕' : '☰' }}
+    <button
+      class="hamburger"
+      (click)="toggleMenu()"
+      aria-label="Menú"
+      aria-controls="mobile-menu"
+      [attr.aria-expanded]="menuOpen"
+    >
+      <span aria-hidden="true">{{ menuOpen ? '✕' : '☰' }}</span>
     </button>
   </div>
 
-  <div class="mobile-menu" *ngIf="menuOpen">
+  <!-- Fondo detrás del menú móvil: clic afuera lo cierra -->
+  <div class="mobile-backdrop" *ngIf="menuOpen" (click)="closeMenu()"></div>
+
+  <div class="mobile-menu" id="mobile-menu" *ngIf="menuOpen">
     <a
       *ngFor="let link of navLinks"
       [routerLink]="link.path"
       [fragment]="link.fragment"
       routerLinkActive="active"
-      [routerLinkActiveOptions]="{ paths: 'exact', matrixParams: 'ignored', queryParams: 'ignored', fragment: 'exact' }"      class="mobile-link"
+      [routerLinkActiveOptions]="{ paths: 'exact', matrixParams: 'ignored', queryParams: 'ignored', fragment: 'exact' }"
       class="mobile-link"
       (click)="closeMenu()"
     >
       {{ link.label }}
     </a>
-    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="mobile-cta" (click)="closeMenu()">
-      💬 Cotizar ahora
+    <a [href]="whatsappUrl" target="_blank" rel="noreferrer noopener" class="mobile-cta" (click)="closeMenu()">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Cotizar ahora
     </a>
   </div>
 </nav>

@@ -54,13 +54,13 @@ const routes: Routes = [
     }
   },
   {
-    path: 'djs',
+    path: 'servicios',
     component: DjsComponent,
     data: {
       seo: {
-        title: 'MS Group — DJs Profesionales para Eventos',
-        description: 'Contrata DJs profesionales de amplio recorrido para eventos corporativos, fiestas privadas y conciertos.',
-        keywords: 'booking djs, djs profesionales, djs bogota, fiestas'
+        title: 'MS Group — Servicios Adicionales',
+        description: 'Catering, tarimas, decoración y más para tu evento.',
+        keywords: 'Tarimas para conciertos, catering, tarimas Bogotá, fiestas'
       }
     }
   },

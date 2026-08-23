@@ -18,15 +18,37 @@
         <i class="fa-solid fa-microphone" style="color: rgb(255, 255, 255);"></i>
       </span> Artistas &amp; Shows en Vivo</h2>
     </div>
-    <div class="grid">
-      <div class="item" *ngFor="let item of items">
-        <span class="bullet">▸</span>
-        <span>{{ item }}</span>
+
+    <!-- Grid de servicios, mismo lenguaje visual que "Proyectos recientes" -->
+    <div class="servicios-grid">
+      <div
+        class="servicio-item"
+        *ngFor="let s of servicios"
+        [class.active]="servicioActivo === s.nombre"
+        (click)="seleccionarServicio(s.nombre)">
+        <img [src]="s.img" [alt]="s.nombre" loading="lazy" />
+        <div class="servicio-overlay">
+          <span>{{ s.nombre }}</span>
+        </div>
       </div>
     </div>
+
+    <!-- Panel que muestra hacia abajo el detalle del servicio seleccionado -->
+    <div class="servicio-detalle">
+      <div class="detalle-img" [ngStyle]="{ 'background-image': 'url(' + servicioActual.img + ')' }"></div>
+      <div class="detalle-info">
+        <span class="detalle-tag">{{ servicioActual.tag }}</span>
+        <h3>{{ servicioActual.nombre }}</h3>
+        <p>{{ servicioActual.detalle }}</p>
+        <a [href]="getWaLink(servicioActual.nombre)" target="_blank" rel="noreferrer" class="detalle-cta">
+          Cotizar {{ servicioActual.nombre }} <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
     <div class="actions">
       <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
-        💬 Cotizar por WhatsApp
+        <i class="fa-brands fa-whatsapp"></i>  Cotizar por WhatsApp
       </a>
       <a routerLink="/" class="btn-back">← Volver al inicio</a>
     </div>

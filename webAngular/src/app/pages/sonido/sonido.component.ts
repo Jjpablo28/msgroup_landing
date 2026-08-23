@@ -1,5 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { MetaService } from '../../core/meta.service';
+
+interface Categoria {
+  id: string;
+  label: string;
+  descripcion: string;
+  icon: string;
+  equipos: Equipo[];
+}
+
+interface Equipo {
+  nombre: string;
+  detalle: string;
+  tag: string;
+}
 
 @Component({
   selector: 'app-sonido',
@@ -9,35 +24,137 @@ import { MetaService } from '../../core/meta.service';
 })
 export class SonidoComponent implements OnInit {
   readonly heroImg = 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&q=80';
-
   readonly whatsappUrl =
     'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20Sonido%2C%20Pantallas%20e%20Iluminaci%C3%B3n.';
 
-  readonly items: string[] = [
-    'Arrays line-array para grandes recintos',
-    'Pantallas LED indoor/outdoor alta resolución',
-    'Totems LED y Booths DJ LED personalizados',
-    'Pantallas Smart TV para eventos corporativos',
-    'Iluminación con moving heads y beams',
-    'Diseño lumínico y shows de luz programados',
-    'Neon Party: ambientación completa con efectos UV',
-    'Ingeniería de sonido en vivo con operador técnico',
+  categoriaActiva: string = 'sonido';
+  equipoExpandido: string | null = null;
+
+  readonly categorias: Categoria[] = [
+    {
+      id: 'sonido',
+      label: 'Sonido',
+      icon: 'fa-solid fa-wave-square',
+      descripcion: 'Sistemas de audio profesional para cualquier escala de evento.',
+      equipos: [
+        {
+          nombre: 'Line Array',
+          detalle: 'Sistemas de columna para cobertura uniforme en recintos grandes. Ideal para conciertos y festivales con más de 500 personas.',
+          tag: 'Grandes eventos',
+        },
+
+        {
+          nombre: 'Consolas Digitales',
+          detalle: 'Mesas de mezcla digitales de última generación con procesamiento en tiempo real y recall de escenas.',
+          tag: 'Control',
+        },
+        {
+          nombre: 'Subwoofers',
+          detalle: 'Baja frecuencia potente y controlada para eventos que requieren impacto físico en el sonido. Cardioid o end-fire.',
+          tag: 'Bajo',
+        },
+      ],
+    },
+    {
+      id: 'pantallas',
+      label: 'Pantallas LED',
+      icon: 'fa-solid fa-tv',
+      descripcion: 'Pantallas de alta resolución para visualización de contenido en cualquier ambiente.',
+      equipos: [
+        {
+          nombre: 'LED Indoor',
+          detalle: 'Pantallas para espacios cerrados con alta definición. Perfectas para conferencias, lanzamientos y eventos VIP.',
+          tag: 'Interior',
+        },
+        {
+          nombre: 'LED Outdoor ',
+          detalle: 'Alta luminosidad para exteriores incluso bajo luz solar directa. Resistentes al agua y polvo.',
+          tag: 'Exterior',
+        },
+        {
+          nombre: 'Totems LED',
+          detalle: 'Estructuras verticales con pantalla LED para branding y señalización en stands, ferias y puntos de venta.',
+          tag: 'Branding',
+        },
+        {
+          nombre: 'Smart TV Corporativo',
+          detalle: 'Pantallas comerciales para presentaciones, directorios y señalización en eventos institucionales.',
+          tag: 'Corporativo',
+        },
+      ],
+    },
+    {
+      id: 'iluminacion',
+      label: 'Iluminación',
+      icon: 'fa-solid fa-lightbulb',
+      descripcion: 'Diseño lumínico que transforma el ambiente y crea experiencias visuales únicas.',
+      equipos: [
+        {
+          nombre: 'Moving Heads Beam',
+          detalle: 'Cabezas móviles con haz de luz concentrado. Generan el efecto de rayos de luz en conciertos y discotecas.',
+          tag: 'Show',
+        },
+        {
+          nombre: 'Iluminación Exterior',
+          detalle: 'Iluminación de área suave y uniforme para escenarios, tarimas y zonas de espectáculo.',
+          tag: 'Escena',
+        },
+        {
+          nombre: 'Efectos UV & Neon',
+          detalle: 'Luces ultravioleta y neón para Neon Party, eventos temáticos y ambientaciones especiales con pintura reactiva.',
+          tag: 'Temático',
+        },
+        {
+          nombre: 'Programación DMX',
+          detalle: 'Control sincronizado de toda la iluminación con operador técnico. Shows de luz programados al ritmo de la música.',
+          tag: 'Técnico',
+        },
+      ],
+    },
   ];
 
-  constructor(private metaService: MetaService) {}
+  readonly proyectos = [
+    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1787449656/IMG_5099_oqhzfg.heic', tipo: 'Concierto' },
+    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785048609/IMG_3675_n70n8h.jpg', tipo: 'Matrimonio' },
+    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_13_ago_2026_05_59_19_p.m._otmi5w.png', tipo: 'Corporativo' },
+    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_20_ago_2026_07_23_18_p.m._psuopf.png', tipo: 'Festival' },
+  ];
+
+  get categoriaActual(): Categoria {
+    return this.categorias.find(c => c.id === this.categoriaActiva)!;
+  }
+
+  constructor(
+    private metaService: MetaService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
     this.metaService.setMeta({
       title: 'Sonido, Pantallas e Iluminación — MS Group',
-      description: 'Arrays profesionales, pantallas LED indoor/outdoor y diseño lumínico para eventos en Colombia. Más de 20 años de experiencia.',
+      description: 'Arrays profesionales, pantallas LED indoor/outdoor y diseño lumínico para eventos en Colombia.',
       keywords: 'sonido profesional, pantallas LED, iluminación eventos, line array, moving heads, Colombia',
     });
   }
+
   get heroStyle(): object {
     return {
       'background-image': `url(${this.heroImg})`,
       'background-size': 'cover',
-      'background-position': 'center'
+      'background-position': 'center',
     };
+  }
+
+  cambiarCategoria(id: string): void {
+    this.categoriaActiva = id;
+    this.equipoExpandido = null;
+  }
+
+  toggleEquipo(nombre: string): void {
+    this.equipoExpandido = this.equipoExpandido === nombre ? null : nombre;
+  }
+
+  getWaLink(equipo: string): string {
+    return `https://wa.me/573132892628?text=${encodeURIComponent('Hola! Me interesa cotizar: ' + equipo)}`;
   }
 }

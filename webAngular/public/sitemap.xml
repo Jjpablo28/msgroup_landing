@@ -21,9 +21,9 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://msgroup.com.co/djs</loc>
+    <loc>https://msgroup.com.co/servicios</loc>
     <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://msgroup.com.co/galeria</loc>

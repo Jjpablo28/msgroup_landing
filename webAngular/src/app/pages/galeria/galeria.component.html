@@ -30,33 +30,41 @@
 </section>
 
 <!-- LIGHTBOX OPTIMIZADO Y FULLSCREEN -->
-<div class="lightbox" *ngIf="selectedIndex !== null" (click)="closeLightbox()">
-  <div class="lightbox-inner" (click)="$event.stopPropagation()">
-    <button class="close" (click)="closeLightbox()">✕</button>
+<!-- Este contenedor siempre existe en el DOM (se mueve a <body> desde el .ts);
+     la visibilidad se controla con la clase .is-open, no con *ngIf en la raíz. -->
+<div class="lightbox" #lightboxEl [class.is-open]="selectedIndex !== null" (click)="closeLightbox()">
+  <ng-container *ngIf="selectedIndex !== null">
+    <div class="lightbox-inner" (click)="$event.stopPropagation()">
+      <button class="close" (click)="closeLightbox()">✕</button>
 
-    <!-- Reproductor de Video -->
-    <video
-      *ngIf="images[selectedIndex!].type === 'video'"
-      [src]="images[selectedIndex!].url"
-      controls
-      autoplay
-      playsinline
-      class="lightbox-media"
-    ></video>
+      <!-- Marco de tamaño fijo: toda imagen o video se acomoda dentro, siempre centrado -->
+      <div class="lightbox-frame">
+        <video
+          *ngIf="images[selectedIndex!].type === 'video'"
+          [src]="images[selectedIndex!].url"
+          controls
+          autoplay
+          playsinline
+          class="lightbox-media"
+        ></video>
 
-    <!-- Visualizador de Imagen -->
-    <img
-      *ngIf="images[selectedIndex!].type !== 'video'"
-      [src]="images[selectedIndex!].url"
-      [alt]="images[selectedIndex!].alt"
-      class="lightbox-media"
-    />
+        <img
+          *ngIf="images[selectedIndex!].type !== 'video'"
+          [src]="images[selectedIndex!].url"
+          [alt]="images[selectedIndex!].alt"
+          class="lightbox-media"
+        />
 
-    <!-- Navegación -->
-    <div class="lightbox-nav">
-      <button (click)="prev()">← Anterior</button>
-      <span>{{ selectedIndex! + 1 }} / {{ images.length }}</span>
-      <button (click)="next()">Siguiente →</button>
+        <button class="arrow arrow-left" (click)="prev()">←</button>
+        <button class="arrow arrow-right" (click)="next()">→</button>
+      </div>
+
+      <!-- Navegación -->
+      <div class="lightbox-nav">
+        <button (click)="prev()">← Anterior</button>
+        <span>{{ selectedIndex! + 1 }} / {{ images.length }}</span>
+        <button (click)="next()">Siguiente →</button>
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>

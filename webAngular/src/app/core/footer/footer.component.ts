@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 interface FooterLink {
   label: string;
@@ -25,4 +26,12 @@ export class FooterComponent {
     { label: 'DJs',         path: '/djs' },
     { label: 'Galería',     path: '/galeria' },
   ];
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  scrollToTop(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
 }

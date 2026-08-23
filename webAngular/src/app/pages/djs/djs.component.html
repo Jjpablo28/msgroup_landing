@@ -1,58 +1,118 @@
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg" [ngStyle]="heroStyle"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="eyebrow">MS Group — Servicios</div>
-    <h1>DJs<br><span class="accent">Profesionales</span></h1>
-    <p>{{ directorName }} y equipo — formato abierto, retro, disco, silent party y VeeJay.</p>
+    <div class="eyebrow">MS Group — Complementa tu evento</div>
+    <h1>Servicios<br><span class="accent">Adicionales</span></h1>
+    <p>Todo lo que necesitas en un solo lugar. Catering, tarimas, decoración, logística y más.</p>
     <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
-      Cotizar DJ →
+      <i class="fa-brands fa-whatsapp"></i> Cotizar paquete completo
     </a>
   </div>
 </section>
 
-<section class="detail">
+<!-- TABS + GRID -->
+<section class="servicios-section">
   <div class="container">
 
-    <!-- Director card -->
-    <div class="director-card">
-      <div class="director-icon">
-        <i class="fa-solid fa-headphones" style="color: rgb(255, 255, 255);"></i>
-      </div>
-      <div>
-        <h3>{{ directorName }} — Director</h3>
-        <p>Dee Jay desde {{ directorSince }}. Canal Capital, Pioneer Colombia. Pionero en Silent Party,
-          Roller Disco, Visual E-Motion y Retro Dance en Colombia. Gerente de ASODJColombia desde 2025.</p>
-      </div>
+    <div class="section-head">
+      <div class="eyebrow">¿Qué necesitas?</div>
+      <h2>Explora nuestros servicios</h2>
+      <p>Haz clic en cualquier servicio para ver el detalle completo.</p>
     </div>
 
-    <div class="header">
-      <div class="eyebrow">¿Qué incluye?</div>
-      <h2><span class="icon">
-        <i class="fa-solid fa-headphones" style="color: rgb(255, 255, 255);"></i>
-      </span> DJs Profesionales</h2>
+    <!-- Tabs filtro -->
+    <div class="tabs">
+      <button
+        *ngFor="let tab of tabs"
+        class="tab-btn"
+        [class.active]="tabActiva === tab.id"
+        (click)="cambiarTab(tab.id)">
+        {{ tab.label }}
+      </button>
     </div>
 
-    <div class="grid">
-      <div class="item" *ngFor="let item of items">
-        <span class="bullet">▸</span>
-        <span>{{ item }}</span>
+    <!-- Grid de servicios -->
+    <div class="servicios-grid">
+      <div
+        class="servicio-card"
+        *ngFor="let svc of serviciosFiltrados"
+        (click)="abrirModal(svc)"
+        [style.--card-color]="svc.color">
+        <div class="card-header">
+          <div class="card-icon">
+            <i [class]="svc.icon"></i>
+          </div>
+          <div class="card-badge">Ver detalle →</div>
+        </div>
+        <h3>{{ svc.titulo }}</h3>
+        <p>{{ svc.descripcion }}</p>
+        <ul class="card-preview">
+          <li *ngFor="let item of svc.items.slice(0, 3)">
+            <i class="fa-solid fa-check"></i> {{ item }}
+          </li>
+          <li class="mas">+ {{ svc.items.length - 3 }} más...</li>
+        </ul>
       </div>
-    </div>
-
-    <!-- Formats -->
-    <div class="formats-section">
-      <div class="eyebrow" style="margin-bottom:16px">Formatos disponibles</div>
-      <div class="formats">
-        <span class="format-tag" *ngFor="let f of formats">{{ f }}</span>
-      </div>
-    </div>
-
-    <div class="actions">
-      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
-        💬 Cotizar por WhatsApp
-      </a>
-      <a routerLink="/" class="btn-back">← Volver al inicio</a>
     </div>
 
   </div>
 </section>
+
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <div class="cta-text">
+        <h2>¿Listo para armar tu evento completo?</h2>
+        <p>Combina nuestros servicios técnicos con los adicionales y obtén un paquete personalizado.</p>
+      </div>
+      <div class="cta-actions">
+        <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+          <i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp
+        </a>
+        <a routerLink="/" class="btn-back">← Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL DETALLE -->
+<div class="modal-overlay" *ngIf="servicioActivo" (click)="cerrarModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="cerrarModal()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-header" [style.--card-color]="servicioActivo.color">
+      <div class="modal-icon">
+        <i [class]="servicioActivo.icon"></i>
+      </div>
+      <div>
+        <div class="eyebrow">Servicio adicional</div>
+        <h2>{{ servicioActivo.titulo }}</h2>
+        <p>{{ servicioActivo.descripcion }}</p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="eyebrow" style="margin-bottom:16px">¿Qué incluye?</div>
+      <div class="modal-items">
+        <div class="modal-item" *ngFor="let item of servicioActivo.items">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>{{ item }}</span>
+        </div>
+      </div>
+      <a
+        [href]="getWaLink(servicioActivo.titulo)"
+        target="_blank"
+        rel="noreferrer"
+        class="btn-primary modal-cta"
+        (click)="cerrarModal()">
+        <i class="fa-brands fa-whatsapp"></i> Cotizar {{ servicioActivo.titulo }}
+      </a>
+    </div>
+  </div>
+</div>

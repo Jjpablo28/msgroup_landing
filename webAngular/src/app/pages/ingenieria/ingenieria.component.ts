@@ -1,5 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { MetaService } from '../../core/meta.service';
+
+interface CategoriaTecnica {
+  id: string;
+  icon: string;
+  titulo: string;
+  items: string[];
+}
 
 @Component({
   selector: 'app-ingenieria',
@@ -9,21 +17,60 @@ import { MetaService } from '../../core/meta.service';
 })
 export class IngenieriaComponent implements OnInit {
   readonly heroImg = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80';
-  readonly whatsappUrl =
-    'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20Ingenieria%20Tecnica%20para%20mi%20evento.';
+  private readonly whatsappNumber = '573132892628';
 
-  readonly items: string[] = [
-    'Diseño y producción de montajes escénicos',
-    'Ingeniería de sistemas de audio y video',
-    'Soporte técnico en sitio durante el evento',
-    'Alquiler de estructuras y mobiliario',
-    'Infraestructura para grandes producciones',
-    'Conferencias, ruedas de prensa y seminarios',
-    'Activación punto de venta y lanzamientos',
-    'Conversatorios y eventos institucionales',
+  // Mismos 8 ítems originales, agrupados en 3 categorías (sin agregar contenido nuevo)
+  readonly servicios: CategoriaTecnica[] = [
+    {
+      id: 'montajes',
+      icon: 'fa-solid fa-toolbox',
+      titulo: 'Montajes & Estructuras',
+      items: [
+        'Diseño y producción de montajes escénicos',
+        'Alquiler de estructuras y mobiliario',
+        'Infraestructura para grandes producciones',
+      ],
+    },
+    {
+      id: 'tecnico',
+      icon: 'fa-solid fa-headset',
+      titulo: 'Audio & Soporte Técnico',
+      items: [
+        'Ingeniería de sistemas de audio y video',
+        'Soporte técnico en sitio durante el evento',
+        'Ingeniero VJ (visual)'
+      ],
+    },
+    {
+      id: 'produccion',
+      icon: 'fa-solid fa-bullhorn',
+      titulo: 'Producción de Eventos',
+      items: [
+        'Conferencias, ruedas de prensa y seminarios',
+        'Activación punto de venta y lanzamientos',
+        'Conversatorios y eventos institucionales',
+      ],
+    },
   ];
 
-  constructor(private metaService: MetaService) {}
+  // Barras del "ecualizador" 3D del hero (decorativo)
+  readonly eqBars = Array.from({ length: 22 });
+
+  tabActiva: string = 'montajes';
+  servicioActivo: CategoriaTecnica | null = null;
+
+  private tilt = { rx: 0, ry: 0 };
+  heroActive = false;
+
+  private btnOffset = { x: 0, y: 0 };
+  private btnHover = false;
+
+  private selectedKeys = new Set<string>();
+
+  constructor(
+    private metaService: MetaService,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
     this.metaService.setMeta({
@@ -32,11 +79,139 @@ export class IngenieriaComponent implements OnInit {
       keywords: 'ingeniería eventos, montajes escénicos, soporte técnico, producción eventos colombia',
     });
   }
+
   get heroStyle(): object {
     return {
       'background-image': `url(${this.heroImg})`,
       'background-size': 'cover',
-      'background-position': 'center'
+      'background-position': 'center',
     };
+  }
+
+  pad(n: number): string {
+    return n.toString().padStart(2, '0');
+  }
+
+
+
+  get sceneStyle(): object {
+    return {
+      transform: `rotateX(${this.tilt.rx}deg) rotateY(${this.tilt.ry}deg)`,
+    };
+  }
+
+  // --- Botón magnético del hero -------------------------------------------
+
+  onBtnMove(event: MouseEvent): void {
+    this.btnHover = true;
+    const el = event.currentTarget as HTMLElement;
+    const rect = el.getBoundingClientRect();
+    this.btnOffset = {
+      x: (event.clientX - rect.left - rect.width / 2) * 0.25,
+      y: (event.clientY - rect.top - rect.height / 2) * 0.25,
+    };
+  }
+
+  onBtnLeave(): void {
+    this.btnHover = false;
+    this.btnOffset = { x: 0, y: 0 };
+  }
+
+  get btnStyle(): object {
+    const scale = this.btnHover ? 1.04 : 1;
+    return {
+      transform: `translate(${this.btnOffset.x}px, ${this.btnOffset.y}px) scale(${scale})`,
+    };
+  }
+
+  // --- Tabs y modal ---------------------------------------------------------
+
+  get servicioActivoTab(): CategoriaTecnica {
+    return this.servicios.find((s) => s.id === this.tabActiva) ?? this.servicios[0];
+  }
+
+  cambiarTab(id: string): void {
+    this.tabActiva = id;
+  }
+
+  abrirModal(servicio: CategoriaTecnica): void {
+    this.servicioActivo = servicio;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = 'hidden';
+      // Mueve el modal al body
+      setTimeout(() => {
+        const modal = document.querySelector('.modal-overlay') as HTMLElement;
+        if (modal) document.body.appendChild(modal);
+      }, 0);
+    }
+  }
+
+  cerrarModal(): void {
+    this.servicioActivo = null;
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  // --- Selección de ítems para cotizar -----------------------------------
+
+  private key(servicioId: string, index: number): string {
+    return `${servicioId}::${index}`;
+  }
+
+  isSelected(servicioId: string, index: number): boolean {
+    return this.selectedKeys.has(this.key(servicioId, index));
+  }
+
+  toggleItem(servicioId: string, index: number): void {
+    const key = this.key(servicioId, index);
+    if (this.selectedKeys.has(key)) {
+      this.selectedKeys.delete(key);
+    } else {
+      this.selectedKeys.add(key);
+    }
+  }
+
+  isServicioFullySelected(servicio: CategoriaTecnica): boolean {
+    return servicio.items.every((_, i) => this.isSelected(servicio.id, i));
+  }
+
+  toggleAllInServicio(servicio: CategoriaTecnica): void {
+    const allSelected = this.isServicioFullySelected(servicio);
+    servicio.items.forEach((_, i) => {
+      const key = this.key(servicio.id, i);
+      if (allSelected) {
+        this.selectedKeys.delete(key);
+      } else {
+        this.selectedKeys.add(key);
+      }
+    });
+  }
+
+  clearSelection(): void {
+    this.selectedKeys.clear();
+  }
+
+  get selectedCount(): number {
+    return this.selectedKeys.size;
+  }
+
+  get whatsappUrl(): string {
+    if (this.selectedKeys.size === 0) {
+      return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(
+        'Hola! Me interesa cotizar Ingenieria Tecnica para mi evento.'
+      )}`;
+    }
+
+    const bloques: string[] = [];
+    for (const servicio of this.servicios) {
+      const elegidos = servicio.items.filter((_, i) => this.isSelected(servicio.id, i));
+      if (elegidos.length) {
+        bloques.push(`${servicio.titulo}:\n- ${elegidos.join('\n- ')}`);
+      }
+    }
+
+    const mensaje = `Hola! Me interesa cotizar Ingeniería Técnica para mi evento, puntualmente:\n\n${bloques.join('\n\n')}`;
+    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(mensaje)}`;
   }
 }

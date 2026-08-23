@@ -1,34 +1,105 @@
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg" [ngStyle]="heroStyle"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="eyebrow">MS Group — Servicios</div>
-    <h1>Sonido, Pantallas<br><span class="accent">e Iluminación</span></h1>
-    <p>Arrays profesionales, pantallas LED y diseño lumínico para todo tipo de evento.</p>
-    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
-      Cotizar este servicio →
+    <div class="eyebrow">MS Group — Producción técnica</div>
+    <h1>Sonido · Pantallas<br><span class="accent">· Iluminación</span></h1>
+    <p>No rentamos equipos. <strong>Producimos experiencias.</strong></p>
+    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-wa">
+      <i class="fa-brands fa-whatsapp"></i> Cuéntanos tu evento
     </a>
+  </div>
+  <div class="hero-scroll">
+    <span>Explorar</span>
+    <i class="fa-solid fa-chevron-down"></i>
   </div>
 </section>
 
-<section class="detail">
+<!-- SELECTOR DE CATEGORÍA -->
+<section class="explorador">
   <div class="container">
-    <div class="header">
-      <div class="eyebrow">¿Qué incluye?</div>
-      <h2><span class="icon">
-        <i class="fa-solid fa-volume-high" style="color: rgb(255, 255, 255);"></i>
-      </span> Sonido, Pantallas e Iluminación</h2>
+
+    <div class="cat-tabs">
+      <button
+        *ngFor="let cat of categorias"
+        class="cat-tab"
+        [class.active]="categoriaActiva === cat.id"
+        (click)="cambiarCategoria(cat.id)">
+        <i [class]="cat.icon"></i>
+        <span>{{ cat.label }}</span>
+      </button>
     </div>
-    <div class="grid">
-      <div class="item" *ngFor="let item of items">
-        <span class="bullet">▸</span>
-        <span>{{ item }}</span>
+
+    <div class="cat-content">
+      <div class="cat-info">
+        <p class="cat-desc">{{ categoriaActual.descripcion }}</p>
+      </div>
+
+      <!-- Lista de equipos tipo acordeón -->
+      <div class="equipos-lista">
+        <div
+          class="equipo-row"
+          *ngFor="let eq of categoriaActual.equipos; let i = index"
+          [class.open]="equipoExpandido === eq.nombre"
+          (click)="toggleEquipo(eq.nombre)">
+
+          <div class="equipo-header">
+            <div class="equipo-num">0{{ i + 1 }}</div>
+            <div class="equipo-nombre">{{ eq.nombre }}</div>
+            <span class="equipo-tag">{{ eq.tag }}</span>
+            <div class="equipo-toggle">
+              <i class="fa-solid fa-plus" *ngIf="equipoExpandido !== eq.nombre"></i>
+              <i class="fa-solid fa-minus" *ngIf="equipoExpandido === eq.nombre"></i>
+            </div>
+          </div>
+
+          <div class="equipo-body" *ngIf="equipoExpandido === eq.nombre">
+            <p>{{ eq.detalle }}</p>
+            <a [href]="getWaLink(eq.nombre)" target="_blank" rel="noreferrer" class="equipo-cta">
+              Cotizar {{ eq.nombre }} <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
       </div>
     </div>
-    <div class="actions">
-      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
-        💬 Cotizar por WhatsApp
-      </a>
-      <a routerLink="/" class="btn-back">← Volver al inicio</a>
+
+  </div>
+</section>
+
+<!-- PROYECTOS RECIENTES -->
+<section class="proyectos">
+  <div class="container">
+    <div class="proyectos-header">
+      <div class="eyebrow">Lo que hemos hecho</div>
+      <h2>Proyectos recientes</h2>
+    </div>
+    <div class="proyectos-grid">
+      <div class="proyecto-item" *ngFor="let p of proyectos">
+        <img [src]="p.img" [alt]="p.tipo" loading="lazy" />
+        <div class="proyecto-overlay">
+          <span>{{ p.tipo }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-left">
+        <div class="eyebrow">¿Tienes un evento en mente?</div>
+        <h2>Hablemos.<br>Sin compromiso.</h2>
+      </div>
+      <div class="cta-right">
+        <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-wa large">
+          <i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp
+        </a>
+        <a routerLink="/" class="btn-back">← Volver al inicio</a>
+      </div>
     </div>
   </div>
 </section>

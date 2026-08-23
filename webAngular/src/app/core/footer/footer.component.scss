@@ -47,14 +47,21 @@ footer {
     align-items: center; //
     gap: 12px;
     text-decoration: none; //
+    width: fit-content;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 
   .logo-badge {
     width: 44px;
     height: 44px;
-   // background: #111; //
+    // background: #111; //
     //border: 1.5px solid $green; //
-   // border-radius: 7px; //
+    // border-radius: 7px; //
     display: flex; //
     align-items: center; //
     justify-content: center; //
@@ -148,7 +155,11 @@ footer {
     font-size: 13.5px;
 
     .icon {
+      width: 16px;
       font-size: 14px;
+      display: inline-flex;
+      justify-content: center;
+      flex-shrink: 0;
     }
   }
 
@@ -186,13 +197,11 @@ footer {
     transform: translateY(-2px);
   }
 
-  /* Forzamos un tamaño adecuado para el icono */
-  .icon-img {
-    width: 16px;
-    height: 16px;
-    display: block;
+  i {
+    font-size: 16px;
   }
 }
+
 /* --- Barra Inferior (Copyright) --- */
 .footer-bottom {
   border-top: 1px solid $border-color; //
@@ -205,6 +214,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
     color: #666;
     font-size: 11px;
     letter-spacing: 0.5px;
@@ -221,4 +231,37 @@ footer {
     font-weight: 700;
     letter-spacing: 1px;
   }
+}
+
+.back-to-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #111;
+  border: 1px solid #222;
+  color: $green;
+  font-size: 13px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+
+  &:hover {
+    background: $green;
+    color: #000;
+    border-color: $green;
+    transform: translateY(-2px);
+  }
+}
+
+// Estados de foco visibles para navegación por teclado
+.footer-link:focus-visible,
+.contact-link:focus-visible,
+.cta-button:focus-visible,
+.back-to-top:focus-visible,
+.logo:focus-visible {
+  outline: 2px solid $green;
+  outline-offset: 2px;
 }

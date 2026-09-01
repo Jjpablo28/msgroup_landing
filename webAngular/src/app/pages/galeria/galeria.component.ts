@@ -33,10 +33,33 @@ export class GaleriaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   selectedIndex: number | null = null;
 
+  private inyectarSchemaVideo(): void {
+
+    const videoData = this.images.find(item => item.type === 'video');
+
+    if (videoData) {
+
+      const thumbnailUrl = videoData.url.replace(/\.mp4$/i, '.jpg');
+
+      const videoSchema = {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": videoData.alt, // "Evento Privado"
+        "description": "Video de evento privado producido por MS Group.",
+        "thumbnailUrl": [ thumbnailUrl ],
+        "uploadDate": "2026-08-31T08:00:00-05:00", // Actualiza con la fecha real si la tienes
+        "contentUrl": videoData.url
+      };
+
+      this.metaService.setJsonLd(videoSchema);
+    }
+  }
+
   readonly images: GalleryItem[] = [
+    // --- EVENTOS SOCIALES Y PRIVADOS ---
     {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/IMG_0119_w1vs95.jpg',
-      alt: 'Evento Empresarial',
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785052106/93333ba1-b607-4799-be86-a06364242838_wnxzqk.jpg',
+      alt: '15 Años - Pantalla led',
       type: 'image'
     },
     {
@@ -45,28 +68,8 @@ export class GaleriaComponent implements OnInit, AfterViewInit, OnDestroy {
       type: 'video'
     },
     {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/IMG_3661_f5p1rl.heic',
-      alt: 'Ingenieria de sonido en matrimonio',
-      type: 'image'
-    },
-    {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/IMG_3675_n70n8h.jpg',
-      alt: 'Orquesta - Matrimonio',
-      type: 'image'
-    },
-    {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/6A706274-98FF-4B80-9EA6-85D71CB6BAF6_o4qsgq.jpg',
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449859/3_ChatGPT_Image_11_ago_2026_12_21_13_p.m._kvxly1.png',
       alt: 'Evento Privado',
-      type: 'image'
-    },
-    {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785049704/IMG_8756_h7ojpr.jpg',
-      alt: 'Evento Privado 15 Años - Pantalla led- Iluminación',
-      type: 'image'
-    },
-    {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785047883/WhatsApp_Image_2026-02-25_at_6.58.16_PM_ujbung.jpg',
-      alt: 'Concierto - array - iluminacion',
       type: 'image'
     },
     {
@@ -74,34 +77,73 @@ export class GaleriaComponent implements OnInit, AfterViewInit, OnDestroy {
       alt: 'Matrimonio',
       type: 'image'
     },
+    // --- CONCIERTOS ---
     {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/IMG_8837_tv93xp.heic',
-      alt: 'Puesto de mando pantalla led',
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload//w_600,q_70,f_auto/ChatGPT_Image_11_ago_2026_12_39_44_p.m._uachvk.png',
+      alt: 'Concierto - array - Bingo',
       type: 'image'
     },
     {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785051499/1A6EDE17-BB85-4512-8956-68201C892DD6_xz2w60.jpg',
-      alt: 'Montaje pantalla Led Espejo',
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/1_ChatGPT_Image_11_ago_2026_11_10_16_a.m._gb0xlo.png',
+      alt: 'Concierto - Array - Estructuras - Iluminación',
       type: 'image'
     },
     {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785052071/bdd21617-e3d1-4bf9-82a1-e864b052d644_yrwoe4.jpg',
-      alt: 'Novenas Navideñas',
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/ChatGPT_Image_11_ago_2026_11_36_11_a.m._l83xhz.png',
+      alt: 'Concierto - array - iluminacion',
       type: 'image'
     },
     {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785052106/93333ba1-b607-4799-be86-a06364242838_wnxzqk.jpg',
-      alt: '15 Años',
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/1_Eddie_Santiago_h5m96e.png',
+      alt: 'Concierto - Montaje - Eddie Santiago',
+      type: 'image'
+    },
+    {
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_20_ago_2026_07_23_18_p.m._psuopf.png',
+      alt: 'Concierto - Producción',
+      type: 'image'
+    },
+    {
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1788235129/IMG-20220908-WA0106_khwf5c.jpg',
+      alt: 'Ingenieria de concierto',
+      type: 'image'
+    },
+    {
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/IMG_3661_f5p1rl.heic',
+      alt: 'Ingenieria de sonido en matrimonio',
+      type: 'image'
+    },
+
+
+    // --- EVENTOS CORPORATIVOS ---
+    {
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/IMG_0119_w1vs95.jpg',
+      alt: 'Evento Empresarial',
       type: 'image'
     },
     {
       url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785052797/469dc6ef-1b3a-40b5-a6c6-6018fe41b08e_mozydl.jpg',
-      alt: 'Evento corporativo - Pantalla LED',
+      alt: 'Evento corporativo - Pantalla LED - Fortaleza',
+      type: 'image'
+    },
+    {
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/2_ChatGPT_Image_11_ago_2026_12_15_21_p.m._epxd7y.png',
+      alt: 'Evento corporativo - Sonido - Pantalla Led - Prysmian',
       type: 'image'
     },
     {
       url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785052780/12762_umzvss.jpg',
-      alt: 'Evento corporativo - Sonido para musicos',
+      alt: 'Evento corporativo - Sonido para musicos - Cruz Roja',
+      type: 'image'
+    },
+
+
+
+
+    // --- PRODUCCIÓN GENERAL, MONTAJES Y ARTISTAS ---
+    {
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/ChatGPT_Image_27_ago_2026_10_37_35_p.m._d2ldix.png',
+      alt: 'Evento - Pantallas led - Iluminación - Martin Fierro',
       type: 'image'
     },
     {
@@ -111,12 +153,7 @@ export class GaleriaComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449656/IMG_5099_oqhzfg.heic',
-      alt: 'Montaje de Evento',
-      type: 'image'
-    },
-    {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_20_ago_2026_07_23_18_p.m._psuopf.png',
-      alt: 'Concierto',
+      alt: 'Montaje pantallas escenario - Banda Rock - Producción',
       type: 'image'
     },
     {
@@ -125,13 +162,13 @@ export class GaleriaComponent implements OnInit, AfterViewInit, OnDestroy {
       type: 'image'
     },
     {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_13_ago_2026_11_35_02_a.m._lf5hv8.png',
-      alt: 'Artistas - Banda',
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/IMG_8837_tv93xp.heic',
+      alt: 'Puesto de mando pantalla led',
       type: 'image'
     },
     {
-      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449859/3_ChatGPT_Image_11_ago_2026_12_21_13_p.m._kvxly1.png',
-      alt: 'Evento Privado',
+      url: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_13_ago_2026_11_35_02_a.m._lf5hv8.png',
+      alt: 'Artistas - Banda',
       type: 'image'
     }
   ];
@@ -148,13 +185,11 @@ export class GaleriaComponent implements OnInit, AfterViewInit, OnDestroy {
       description: 'Galería de eventos producidos por MS Group en Colombia. Conciertos, matrimonios, eventos corporativos y más.',
       keywords: 'galería eventos colombia, fotos eventos, producción eventos fotos',
     });
+    this.inyectarSchemaVideo();
   }
 
   ngAfterViewInit(): void {
-    // Movemos el lightbox directo a <body>. Así su position:fixed se calcula
-    // siempre contra la ventana real, sin importar si algún contenedor padre
-    // (header, layout, etc.) tiene transform/filter/overflow que rompa el
-    // "containing block" y descentre o recorte el modal.
+
     if (isPlatformBrowser(this.platformId) && this.lightboxEl) {
       this.renderer.appendChild(document.body, this.lightboxEl.nativeElement);
     }

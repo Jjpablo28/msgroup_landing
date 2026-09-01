@@ -30,11 +30,9 @@ export class MetaService {
     this.meta.updateTag({ property: 'og:type',         content: 'website' });
     this.meta.updateTag({ property: 'og:site_name',    content: 'MS Group' });
 
-
     const currentUrl = 'https://msgroup.com.co' + this.router.url;
     this.updateCanonicalUrl(currentUrl);
   }
-
 
   private updateCanonicalUrl(url: string): void {
     let link: HTMLLinkElement | null = this.document.querySelector("link[rel='canonical']");
@@ -48,5 +46,20 @@ export class MetaService {
     link.setAttribute('href', url);
 
     this.meta.updateTag({ property: 'og:url', content: url });
+  }
+
+  // Nuevo método para inyectar datos estructurados (JSON-LD)
+  setJsonLd(schema: any): void {
+    const existingScript = this.document.getElementById('json-ld-schema');
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'json-ld-schema';
+    script.text = JSON.stringify(schema);
+
+    this.document.head.appendChild(script);
   }
 }

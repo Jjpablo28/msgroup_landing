@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://msgroup.com.co/</loc>
     <lastmod>2026-08-22</lastmod>
@@ -35,5 +36,16 @@
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://msgroup.com.co/galeria</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <video:video>
+      <video:thumbnail_loc>https://res.cloudinary.com/dzueiucg9/video/upload/v1785047898/Evento_privado__leds__beams__cabezas__t%C3%B3tems__djsetlive__Somos__mobilesoundeventos_Somos__producci%C3%B3n_Somos__eventos_Somos__jimmydj_MP4_flmyer.jpg</video:thumbnail_loc>
+      <video:title>Evento Privado</video:title>
+      <video:description>Video de evento privado producido por MS Group.</video:description>
+      <video:content_loc>https://res.cloudinary.com/dzueiucg9/video/upload/v1785047898/Evento_privado__leds__beams__cabezas__t%C3%B3tems__djsetlive__Somos__mobilesoundeventos_Somos__producci%C3%B3n_Somos__eventos_Somos__jimmydj_MP4_flmyer.mp4</video:content_loc>
+    </video:video>
   </url>
 </urlset>

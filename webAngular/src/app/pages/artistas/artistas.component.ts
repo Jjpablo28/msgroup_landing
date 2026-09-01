@@ -34,7 +34,7 @@ export class ArtistasComponent implements OnInit {
       tag: 'En vivo',
       detalle:
         'Agrupaciones profesionales listas para escenarios grandes, con repertorio adaptable y experiencia en festivales y conciertos masivos.',
-      img: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=900&q=80',
+      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/v1788233850/1_Eddie_Santiago_h5m96e.png',
     },
     {
       nombre: 'Shows para 15 años y matrimonios',
@@ -48,14 +48,14 @@ export class ArtistasComponent implements OnInit {
       tag: 'Privado',
       detalle:
         'Formatos exclusivos y personalizados para eventos privados, con artistas y actos pensados para sorprender a un público selecto.',
-      img: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?w=900&q=80',
+      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/v1787449860/ChatGPT_Image_11_ago_2026_12_07_16_p.m._yoppcy.png',
     },
     {
       nombre: 'Artistas para eventos institucionales',
       tag: 'Corporativo',
       detalle:
         'Shows y actos alineados con la imagen de marca de tu empresa, ideales para lanzamientos, aniversarios y convenciones.',
-      img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&q=80',
+      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/ChatGPT_Image_11_ago_2026_11_33_44_a.m._zgxz9s.png',
     },
     {
       nombre: 'Coordinación de rider técnico y hospitalidad',
@@ -69,7 +69,7 @@ export class ArtistasComponent implements OnInit {
       tag: 'Producción',
       detalle:
         'Desde el diseño del escenario hasta sonido, iluminación y dirección técnica: producimos el espectáculo de principio a fin.',
-      img: 'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=900&q=80',
+      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/v1787449860/ChatGPT_Image_20_ago_2026_07_23_18_p.m._psuopf.png',
     },
 
   ];

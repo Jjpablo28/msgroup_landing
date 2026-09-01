@@ -114,8 +114,8 @@ export class SonidoComponent implements OnInit {
   ];
 
   readonly proyectos = [
-    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1787449656/IMG_5099_oqhzfg.heic', tipo: 'Concierto' },
-    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1785048609/IMG_3675_n70n8h.jpg', tipo: 'Matrimonio' },
+    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1788233677/2_Maelo_Ruiz_f316lo.png', tipo: 'Concierto' },
+    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1788233849/4_ChatGPT_Image_11_ago_2026_12_10_37_p.m._o0txtw.png', tipo: 'Matrimonio' },
     { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_13_ago_2026_05_59_19_p.m._otmi5w.png', tipo: 'Corporativo' },
     { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_20_ago_2026_07_23_18_p.m._psuopf.png', tipo: 'Festival' },
   ];

@@ -76,19 +76,19 @@ export class HomeComponent implements OnInit {
     {
       icon: 'fa-solid fa-champagne-glasses', // Copas brindando para eventos privados
       label: 'Privados',
-      img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=70',
+      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1787449860/ChatGPT_Image_11_ago_2026_07_59_20_a.m._ewjfug.png',
       items: ['Fiestas temáticas', '15 Años', 'Matrimonios', 'Neon Party', 'Karaoke', 'Retro', 'VeeJay'],
     },
     {
       icon: 'fa-solid fa-building', // Edificio para eventos institucionales
       label: 'Institucionales',
-      img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=70',
+      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1788235749/ChatGPT_Image_11_ago_2026_12_12_10_p.m._t2qido.png',
       items: ['Conferencias', 'Ruedas de prensa', 'Activación PDV', 'Lanzamiento de producto', 'Conversatorios', 'Seminarios'],
     },
     {
       icon: 'fa-solid fa-guitar', // Guitarra eléctrica para masivos/conciertos
       label: 'Masivos',
-      img: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&q=70',
+      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1788233850/P_U_2_vd8tu9.png',
       items: ['Conciertos', 'Ferias', 'Festivales', 'Eventos culturales', 'Grandes producciones'],
     },
   ];
@@ -97,22 +97,22 @@ export class HomeComponent implements OnInit {
   readonly socios: Socio[] = [
     {
       nombre: 'MS Eventos',
-      cargo: 'Director',
+      cargo: 'Dirección de Operaciones',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785043160/logo_ms_lueree.png',
     },
     {
       nombre: 'Pablo Zoza',
-      cargo: 'Cantante',
+      cargo: 'Manager - Director',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/p_z_f_chnw6g.png',
     },
     {
       nombre: 'Martin Fierro',
-      cargo: 'Patrocinadores',
-      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/mf_fi_omwx37.png',
+      cargo: 'Direccion de Eventos',
+      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_100,c_fill/v1785041490/mf_fi_omwx37.png',
     },
     {
       nombre: 'Diego Cuervo',
-      cargo: 'Ingenieria Audio-Visual',
+      cargo: 'Dirección De Ingenieria',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/D_C_2_yquutt.png',
     },
   ];

@@ -92,11 +92,26 @@
     </div>
 
     <div class="actions">
-    <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
-      <i class="fa-brands fa-whatsapp"></i> {{ selectedCount > 0 ? 'Cotizar seleccionados (' + selectedCount + ')' : 'Cotizar por WhatsApp' }}
-    </a>
-    <a routerLink="/" class="btn-back">← Volver al inicio</a>
+      <a [href]="whatsappUrl" target="_blank" rel="noreferrer" class="btn-primary">
+        <i class="fa-brands fa-whatsapp"></i> {{ selectedCount > 0 ? 'Cotizar seleccionados (' + selectedCount + ')' : 'Cotizar por WhatsApp' }}
+      </a>
+      <a routerLink="/" class="btn-back">← Volver al inicio</a>
+    </div>
   </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="fotos-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Así lo hacemos</div>
+      <h2>Momentos de nuestros eventos</h2>
+    </div>
+    <div class="fotos-grid">
+      <div class="foto-item" *ngFor="let foto of fotos">
+        <img [src]="foto.url" [alt]="foto.alt" loading="lazy" />
+      </div>
+    </div>
   </div>
 </section>
 

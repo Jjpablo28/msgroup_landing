@@ -20,7 +20,7 @@ $green: #A8D520;
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1400&q=70');
+  background-image: url('https://res.cloudinary.com/dzueiucg9/image/upload/w_1400,q_70,f_auto/ChatGPT_Image_20_ago_2026_07_23_18_p.m._psuopf.png');
   background-size: cover;
   background-position: center;
   opacity: 0.18;
@@ -165,7 +165,7 @@ h1 {
   p { color: #777; font-size: 13px; line-height: 1.65; flex: 1; margin-bottom: 20px; }
 }
 
-.svc-icon { font-size: 32px; margin-bottom: 14px; }
+.svc-icon { font-size: 32px; margin-bottom: 14px; color: $green; }
 .svc-link { color: $green; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
 
 // ── EVENTS ────────────────────────────────────────
@@ -269,11 +269,17 @@ h1 {
   border-radius: 10px;
   padding: 36px 24px;
   text-align: center;
-  transition: border-color 0.25s, transform 0.25s;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.25s, background 0.25s;
 
   &:hover {
     border-color: rgba(168,213,32,0.45);
     transform: translateY(-4px);
+  }
+
+  &.active {
+    border-color: $green;
+    background: #151a08;
   }
 
   h3 {
@@ -285,8 +291,8 @@ h1 {
 }
 
 .socio-icon {
-  width: 72px;
-  height: 72px;
+  width: 110px;
+  height: 110px;
   background: #1a1a1a;
   border: 1.5px solid rgba(168,213,32,0.3);
   border-radius: 50%;
@@ -294,11 +300,88 @@ h1 {
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
+  overflow: hidden;
+  padding: 6px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
   i {
     font-size: 28px;
     color: $green;
   }
+}
+
+// Panel de detalle del socio seleccionado (debajo del grid, no dentro de la card)
+.socio-detalle {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-top: 24px;
+  animation: socioFadeIn 0.25s ease;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+}
+
+.detalle-icon {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  background: #1a1a1a;
+  border: 1.5px solid rgba(168,213,32,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.detalle-info {
+  h3 {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 10px 0 0;
+    max-width: 620px;
+  }
+}
+
+.detalle-cargo {
+  color: $green;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@keyframes socioFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .socio-cargo {
@@ -347,10 +430,10 @@ h1 {
     letter-spacing: 1px;
   }
 
-  &:hover { transform: translateY(-3px); }
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent, #{$green});
 
-  &[data-red="instagram"]:hover { border-color: #E1306C; i { color: #E1306C; } }
-  &[data-red="facebook"]:hover  { border-color: #1877F2; i { color: #1877F2; } }
-  &[data-red="whatsapp"]:hover  { border-color: #25D366; i { color: #25D366; } }
-  &[data-red="email"]:hover     { border-color: #A8D520; i { color: #A8D520; } }
+    i { color: var(--accent, #{$green}); }
+  }
 }

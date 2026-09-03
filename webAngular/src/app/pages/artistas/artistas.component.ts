@@ -15,7 +15,7 @@ interface Servicio {
   styleUrl: './artistas.component.scss',
 })
 export class ArtistasComponent implements OnInit {
-  readonly heroImg = 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1200&q=80';
+  readonly heroImg = 'https://res.cloudinary.com/dzueiucg9/image/upload/c_crop,g_north_west,h_661,w_1431,q_80,f_auto/ChatGPT_Image_13_ago_2026_11_35_02_a.m._lf5hv8.png';
   readonly whatsappUrl =
     'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20Artistas%20para%20mi%20evento.';
 
@@ -57,13 +57,7 @@ export class ArtistasComponent implements OnInit {
         'Shows y actos alineados con la imagen de marca de tu empresa, ideales para lanzamientos, aniversarios y convenciones.',
       img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/ChatGPT_Image_11_ago_2026_11_33_44_a.m._zgxz9s.png',
     },
-    {
-      nombre: 'Coordinación de rider técnico y hospitalidad',
-      tag: 'Logística',
-      detalle:
-        'Gestionamos rider técnico, camerinos, transporte y hospitalidad del artista para que la producción fluya sin contratiempos.',
-      img: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=900&q=80',
-    },
+
     {
       nombre: 'Producción completa del espectáculo',
       tag: 'Producción',

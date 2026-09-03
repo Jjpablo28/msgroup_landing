@@ -19,6 +19,7 @@ interface Socio {
   nombre: string;
   cargo: string;
   icon: string;
+  descripcion: string;
 }
 
 interface RedSocial {
@@ -94,26 +95,32 @@ export class HomeComponent implements OnInit {
   ];
 
 
+  socioActivo: Socio | null = null;
+
   readonly socios: Socio[] = [
     {
       nombre: 'MS Eventos',
       cargo: 'Dirección de Operaciones',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785043160/logo_ms_lueree.png',
+      descripcion: 'Coordina la operación integral de cada evento: cronogramas, equipos técnicos y logística en sitio, garantizando que todo salga según lo planeado.',
     },
     {
       nombre: 'Pablo Zoza',
       cargo: 'Manager - Director',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/p_z_f_chnw6g.png',
+      descripcion: 'Dirige la relación con clientes y artistas, asegurando que cada producción refleje la visión del evento de principio a fin.',
     },
     {
       nombre: 'Martin Fierro',
       cargo: 'Direccion de Eventos',
-      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_100,c_fill/v1785041490/mf_fi_omwx37.png',
+      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/martin-fierro-logo-vectorizado_xasiti.svg',
+      descripcion: 'Lidera la dirección creativa y de producción de eventos, con experiencia en formatos privados, sociales y corporativos.',
     },
     {
       nombre: 'Diego Cuervo',
       cargo: 'Dirección De Ingenieria',
       icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/D_C_2_yquutt.png',
+      descripcion: 'Encabeza el área de ingeniería técnica: diseño de montajes, sonido e infraestructura para producciones de cualquier escala.',
     },
   ];
 
@@ -157,5 +164,9 @@ export class HomeComponent implements OnInit {
 
   getWaLink(msg: string): string {
     return `https://wa.me/573132892628?text=${encodeURIComponent(msg)}`;
+  }
+
+  seleccionarSocio(socio: Socio): void {
+    this.socioActivo = this.socioActivo?.nombre === socio.nombre ? null : socio;
   }
 }

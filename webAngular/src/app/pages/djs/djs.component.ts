@@ -12,6 +12,11 @@ interface ServicioAdicional {
   expanded: boolean;
 }
 
+interface FotoGaleria {
+  url: string;
+  alt: string;
+}
+
 @Component({
   selector: 'app-djs',
   standalone: false,
@@ -122,6 +127,33 @@ export class DjsComponent implements OnInit {
     };
     return this.servicios.filter(s => (mapa[this.tabActiva] || []).includes(s.id));
   }
+
+  readonly fotos: FotoGaleria[] = [
+    {
+      url: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80',
+      alt: 'Catering para evento',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
+      alt: 'Montaje de tarima',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80',
+      alt: 'Ambientación y decoración',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1601924582970-9238bcb495d9?w=800&q=80',
+      alt: 'Logística y transporte de equipos',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
+      alt: 'Show de entretenimiento en vivo',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
+      alt: 'Evento corporativo completo',
+    },
+  ];
 
 
 

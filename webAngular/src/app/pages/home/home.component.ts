@@ -19,6 +19,7 @@ interface Socio {
   nombre: string;
   cargo: string;
   icon: string;
+  descripcion: string;
 }
 
 interface RedSocial {
@@ -95,12 +96,16 @@ export class HomeComponent implements OnInit {
   ];
 
 
+  socioActivo: Socio | null = null;
+
   readonly socios: Socio[] = [
     {
       nombre: 'MS Eventos',
       cargo: 'Dirección de Operaciones',
 
+
       icon: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_200,h_200,c_fit/logo_ms_lueree.png',
+
       descripcion: 'Coordina la operación integral de cada evento: cronogramas, equipos técnicos y logística en sitio, garantizando que todo salga según lo planeado.',
     },
     {
@@ -108,6 +113,7 @@ export class HomeComponent implements OnInit {
       cargo: 'Manager - Director',
 
       icon: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_200,h_200,c_fit/Logo_Pablo.png' ,
+
       descripcion: 'Dirige la relación con clientes y artistas, asegurando que cada producción refleje la visión del evento de principio a fin.',
     },
     {
@@ -115,13 +121,16 @@ export class HomeComponent implements OnInit {
       cargo: 'Direccion de Eventos',
 
       icon: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_200,h_200,c_fit/martin-fierro-logo.svg',
+
       descripcion: 'Lidera la dirección creativa y de producción de eventos, con experiencia en formatos privados, sociales y corporativos.',
     },
     {
       nombre: 'Diego Cuervo',
       cargo: 'Dirección De Ingenieria',
 
+
       icon: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_200,h_200,c_fit/v1785041490/Logo_Diego.png',
+
       descripcion: 'Encabeza el área de ingeniería técnica: diseño de montajes, sonido e infraestructura para producciones de cualquier escala.',
     },
   ];
@@ -166,5 +175,9 @@ export class HomeComponent implements OnInit {
 
   getWaLink(msg: string): string {
     return `https://wa.me/573132892628?text=${encodeURIComponent(msg)}`;
+  }
+
+  seleccionarSocio(socio: Socio): void {
+    this.socioActivo = this.socioActivo?.nombre === socio.nombre ? null : socio;
   }
 }

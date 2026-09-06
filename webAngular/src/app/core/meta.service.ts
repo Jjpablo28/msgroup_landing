@@ -30,7 +30,14 @@ export class MetaService {
     this.meta.updateTag({ property: 'og:type',         content: 'website' });
     this.meta.updateTag({ property: 'og:site_name',    content: 'MS Group' });
 
-    const currentUrl = 'https://msgroup.com.co' + this.router.url;
+    let routePath = this.router.url.split('?')[0];
+
+    if (routePath !== '/' && !routePath.endsWith('/')) {
+      routePath += '/';
+    }
+
+    const currentUrl = 'https://msgroup.com.co' + routePath;
+    this.updateCanonicalUrl(currentUrl);
     this.updateCanonicalUrl(currentUrl);
   }
 

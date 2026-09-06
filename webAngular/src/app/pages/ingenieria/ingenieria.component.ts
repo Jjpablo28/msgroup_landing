@@ -9,6 +9,11 @@ interface CategoriaTecnica {
   items: string[];
 }
 
+interface FotoGaleria {
+  url: string;
+  alt: string;
+}
+
 @Component({
   selector: 'app-ingenieria',
   standalone: false,
@@ -16,7 +21,7 @@ interface CategoriaTecnica {
   styleUrl: './ingenieria.component.scss',
 })
 export class IngenieriaComponent implements OnInit {
-  readonly heroImg = 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80';
+  readonly heroImg = 'https://res.cloudinary.com/dzueiucg9/image/upload/w_1200,q_80,f_auto/ChatGPT_Image_11_ago_2026_12_05_37_p.m._z0ysd7.png';
   private readonly whatsappNumber = '573132892628';
 
   // Mismos 8 ítems originales, agrupados en 3 categorías (sin agregar contenido nuevo)
@@ -55,6 +60,33 @@ export class IngenieriaComponent implements OnInit {
 
   // Barras del "ecualizador" 3D del hero (decorativo)
   readonly eqBars = Array.from({ length: 22 });
+
+  readonly fotos: FotoGaleria[] = [
+    {
+      url: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
+      alt: 'Consola de audio profesional',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
+      alt: 'Montaje técnico en concierto',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=800&q=80',
+      alt: 'Estructura y truss para iluminación',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
+      alt: 'Armado de escenario',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
+      alt: 'Soporte técnico durante evento corporativo',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80',
+      alt: 'Ingeniería de sonido en vivo',
+    },
+  ];
 
   tabActiva: string = 'montajes';
   servicioActivo: CategoriaTecnica | null = null;

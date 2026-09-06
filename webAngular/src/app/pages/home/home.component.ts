@@ -76,19 +76,20 @@ export class HomeComponent implements OnInit {
     {
       icon: 'fa-solid fa-champagne-glasses', // Copas brindando para eventos privados
       label: 'Privados',
-      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1787449860/ChatGPT_Image_11_ago_2026_07_59_20_a.m._ewjfug.png',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_90,f_auto/ChatGPT_Image_11_ago_2026_07_59_20_a.m..png',
       items: ['Fiestas temáticas', '15 Años', 'Matrimonios', 'Neon Party', 'Karaoke', 'Retro', 'VeeJay'],
     },
     {
       icon: 'fa-solid fa-building', // Edificio para eventos institucionales
       label: 'Institucionales',
-      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1788235749/ChatGPT_Image_11_ago_2026_12_12_10_p.m._t2qido.png',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_90,f_auto/ChatGPT_Image_11_ago_2026_12_12_10_p.m..png'
+      ,
       items: ['Conferencias', 'Ruedas de prensa', 'Activación PDV', 'Lanzamiento de producto', 'Conversatorios', 'Seminarios'],
     },
     {
       icon: 'fa-solid fa-guitar', // Guitarra eléctrica para masivos/conciertos
       label: 'Masivos',
-      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1788233850/P_U_2_vd8tu9.png',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_90,f_auto/P_U_2.png',
       items: ['Conciertos', 'Ferias', 'Festivales', 'Eventos culturales', 'Grandes producciones'],
     },
   ];
@@ -98,22 +99,30 @@ export class HomeComponent implements OnInit {
     {
       nombre: 'MS Eventos',
       cargo: 'Dirección de Operaciones',
-      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785043160/logo_ms_lueree.png',
+
+      icon: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_200,h_200,c_fit/logo_ms_lueree.png',
+      descripcion: 'Coordina la operación integral de cada evento: cronogramas, equipos técnicos y logística en sitio, garantizando que todo salga según lo planeado.',
     },
     {
       nombre: 'Pablo Zoza',
       cargo: 'Manager - Director',
-      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/p_z_f_chnw6g.png',
+
+      icon: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_200,h_200,c_fit/Logo_Pablo.png' ,
+      descripcion: 'Dirige la relación con clientes y artistas, asegurando que cada producción refleje la visión del evento de principio a fin.',
     },
     {
       nombre: 'Martin Fierro',
       cargo: 'Direccion de Eventos',
-      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_100,c_fill/v1785041490/mf_fi_omwx37.png',
+
+      icon: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_200,h_200,c_fit/martin-fierro-logo.svg',
+      descripcion: 'Lidera la dirección creativa y de producción de eventos, con experiencia en formatos privados, sociales y corporativos.',
     },
     {
       nombre: 'Diego Cuervo',
       cargo: 'Dirección De Ingenieria',
-      icon: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_200,h_200,c_fit/v1785041490/D_C_2_yquutt.png',
+
+      icon: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_200,h_200,c_fit/v1785041490/Logo_Diego.png',
+      descripcion: 'Encabeza el área de ingeniería técnica: diseño de montajes, sonido e infraestructura para producciones de cualquier escala.',
     },
   ];
 

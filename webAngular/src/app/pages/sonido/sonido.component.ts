@@ -23,7 +23,8 @@ interface Equipo {
   styleUrl: './sonido.component.scss',
 })
 export class SonidoComponent implements OnInit {
-  readonly heroImg = 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&q=80';
+
+  readonly heroImg = 'https://res.cloudinary.com/ofho0pt4/image/upload/w_1200,q_80,f_auto/1_ChatGPT_Image_11_ago_2026_11_10_16_a.m..png';
   readonly whatsappUrl =
     'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20Sonido%2C%20Pantallas%20e%20Iluminaci%C3%B3n.';
 
@@ -114,10 +115,13 @@ export class SonidoComponent implements OnInit {
   ];
 
   readonly proyectos = [
-    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_90,f_auto/v1788233677/2_Maelo_Ruiz_f316lo.png', tipo: 'Concierto' },
-    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1788233849/4_ChatGPT_Image_11_ago_2026_12_10_37_p.m._o0txtw.png', tipo: 'Matrimonio' },
-    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_13_ago_2026_05_59_19_p.m._otmi5w.png', tipo: 'Corporativo' },
-    { img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_600,q_70,f_auto/v1787449860/ChatGPT_Image_20_ago_2026_07_23_18_p.m._psuopf.png', tipo: 'Festival' },
+
+    { img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_70,f_auto/v1788667825/1_ChatGPT_Image_11_ago_2026_11_10_16_a.m..png', tipo: 'Concierto' },
+    { img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_70,f_auto/v1788667824/Hcienda_Salitre_02.jpg', tipo: 'Matrimonio' },
+    { img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_70,f_auto/v1788667824/3_ChatGPT_Image_11_ago_2026_12_21_13_p.m..png', tipo: 'Fiesta privada' },
+    { img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_70,f_auto/v1788667825/2_ChatGPT_Image_11_ago_2026_12_15_21_p.m..png', tipo: 'Corporativo' },
+    { img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_70,f_auto/v1788667824/4_ChatGPT_Image_11_ago_2026_12_10_37_p.m..png', tipo: 'Cumpleaños' },
+    { img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_600,q_70,f_auto/v1788667824/ChatGPT_Image_3_sept_2026_11_00_46_p.m..png', tipo: 'Quince Años' },
   ];
 
   get categoriaActual(): Categoria {

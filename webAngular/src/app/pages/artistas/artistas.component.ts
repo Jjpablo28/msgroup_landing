@@ -16,6 +16,7 @@ interface Servicio {
 })
 export class ArtistasComponent implements OnInit {
   readonly heroImg = 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1200&q=80';
+  readonly heroImg = 'https://res.cloudinary.com/ofho0pt4/image/upload/c_crop,g_north_west,h_661,w_1431,q_80,f_auto/v1788666859/5_Paola_Jara.png';
   readonly whatsappUrl =
     'https://wa.me/573132892628?text=Hola!%20Me%20interesa%20cotizar%20Artistas%20para%20mi%20evento.';
 
@@ -27,35 +28,35 @@ export class ArtistasComponent implements OnInit {
       tag: 'Talento',
       detalle:
         'Acceso directo a un roster de artistas colombianos e internacionales de distintos géneros, adaptados al tono y presupuesto de tu evento.',
-      img: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=80',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_900,q_80,f_auto/v1788666859/1_Maelo_Ruiz.png',
     },
     {
       nombre: 'Bandas en vivo para conciertos y festivales',
       tag: 'En vivo',
       detalle:
         'Agrupaciones profesionales listas para escenarios grandes, con repertorio adaptable y experiencia en festivales y conciertos masivos.',
-      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/v1788233850/1_Eddie_Santiago_h5m96e.png',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_900,q_80,f_auto/v1788233850/2_Eddie_Santiago.png',
     },
     {
       nombre: 'Shows para 15 años y matrimonios',
       tag: 'Social',
       detalle:
         'Puesta en escena pensada para momentos íntimos y celebraciones familiares, cuidando cada detalle desde la entrada hasta el cierre.',
-      img: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=900&q=80',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_900,q_80,f_auto/v1788666859/3_Mau_Y_Ricky.png',
     },
     {
       nombre: 'Actos especiales para fiestas privadas',
       tag: 'Privado',
       detalle:
         'Formatos exclusivos y personalizados para eventos privados, con artistas y actos pensados para sorprender a un público selecto.',
-      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/v1787449860/ChatGPT_Image_11_ago_2026_12_07_16_p.m._yoppcy.png',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_900,q_80,f_auto/v1788666859/4_Alci_Acosta.png',
     },
     {
       nombre: 'Artistas para eventos institucionales',
       tag: 'Corporativo',
       detalle:
         'Shows y actos alineados con la imagen de marca de tu empresa, ideales para lanzamientos, aniversarios y convenciones.',
-      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/ChatGPT_Image_11_ago_2026_11_33_44_a.m._zgxz9s.png',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_900,q_80,f_auto/v1788666859/5_Paola_Jara.png',
     },
     {
       nombre: 'Coordinación de rider técnico y hospitalidad',
@@ -69,7 +70,7 @@ export class ArtistasComponent implements OnInit {
       tag: 'Producción',
       detalle:
         'Desde el diseño del escenario hasta sonido, iluminación y dirección técnica: producimos el espectáculo de principio a fin.',
-      img: 'https://res.cloudinary.com/dzueiucg9/image/upload/w_900,q_80,f_auto/v1787449860/ChatGPT_Image_20_ago_2026_07_23_18_p.m._psuopf.png',
+      img: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_900,q_80,f_auto/v1788666860/6._Fulanito.png',
     },
 
   ];

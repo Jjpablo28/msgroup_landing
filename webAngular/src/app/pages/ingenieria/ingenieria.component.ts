@@ -63,27 +63,27 @@ export class IngenieriaComponent implements OnInit {
 
   readonly fotos: FotoGaleria[] = [
     {
-      url: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
-      alt: 'Consola de audio profesional',
+      url: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_800,q_80,f_auto/v1789097702/1._Pantallas.png',
+      alt: 'Pantallas de Led',
     },
     {
-      url: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80',
-      alt: 'Montaje técnico en concierto',
+      url: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_800,q_80,f_auto/v1789097701/2._consola.jpg',
+      alt: 'Consola de audio profesional - ingenieria de audio',
     },
     {
-      url: 'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=800&q=80',
-      alt: 'Estructura y truss para iluminación',
+      url: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_800,q_80,f_auto/v1789099163/3._Set_up.png',
+      alt: 'punto de mando pantallas Led',
     },
     {
-      url: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80',
-      alt: 'Armado de escenario',
+      url: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_800,q_80,f_auto/v1789097702/4._Resolume.png',
+      alt: 'Configuración pantallas Led',
     },
     {
-      url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
-      alt: 'Soporte técnico durante evento corporativo',
+      url: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_800,q_80,f_auto/v1789097702/5._Transmision.png',
+      alt: 'Transmisión en vivo de evento empresarial',
     },
     {
-      url: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80',
+      url: 'https://res.cloudinary.com/ofho0pt4/image/upload/w_800,q_80,f_auto/v1789097702/Polish_20241127_133435172.jpg',
       alt: 'Ingeniería de sonido en vivo',
     },
   ];
